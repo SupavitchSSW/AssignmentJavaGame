@@ -15,9 +15,21 @@ public class IceBear extends Character {
 
     public void checkMana(){
         switch (nextAction){
-            case 1:{
-                if(mana - 1 <0){
-                    nextAction = 8
+            case 1: {
+                if (mana - 1 < 0) {
+                    nextAction = 7;
+                }
+                break;
+            }
+            case 4:{
+                if(mana - 2 < 0){
+                    nextAction = 7;
+                }
+                break;
+            }
+            case 5:{
+                if(mana - 4 < 0){
+                    nextAction = 7;
                 }
             }
         }
@@ -32,20 +44,20 @@ public class IceBear extends Character {
             atkBuff = 50;
             buffTime2--;
         }
-        if(nextAction == 4 && mana-2 > 0){ // skill1 + Def 100 3turn
+        if(nextAction == 4){ // skill1 + Def 100 3turn
             //isBuffActivate = true;
             buffTime1 += 3;
             defBuff = 100;
             mana -= 2;
         }
-        else if(nextAction == 5 && mana-4 > 0){ // skill2 300 Dmg + 50 posion 2 turn
+        else if(nextAction == 5){ // skill2 300 Dmg + 50 posion 2 turn
             //isBuff2Activate = true;
             buffTime2 += 2;
             atkBuff = 50;
             atk = 300;
             mana -= 4;
         }
-        else if(nextAction == 1 && mana-1 > 0){ // normal attack 100 Dmg
+        else if(nextAction == 1){ // normal attack 100 Dmg
              atk = 100;
              mana -= 1;
         }
@@ -67,7 +79,6 @@ public class IceBear extends Character {
         def = 0;
         finalDef = 0;
         finalAtk = 0;
-
     }
 
 
