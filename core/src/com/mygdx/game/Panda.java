@@ -5,8 +5,13 @@ package com.mygdx.game;
  */
 public class Panda extends Character {
 
-    public Panda(int x, int y) {
-        super(x, y);
+    @Override
+    public void draw() {
+
+    }
+
+    public Panda(int x, int y, int whoiam) {
+        super(x, y,whoiam);
     }
 
     @Override

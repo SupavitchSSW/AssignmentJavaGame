@@ -24,13 +24,16 @@ public abstract class Character{
     Vector2 destinationPos = new Vector2();
     Sprite sprite;
     int nextAction;
+    int whoiam = 0;
 
-    public Character(int x, int y ){
+    public Character(int x, int y ,int whoiam){
         pos.x = x;
         pos.y = y;
+        this.whoiam = whoiam;
     }
 
     public boolean goRight(){
+        nextAction = 8;
         if(pos.x < destinationPos.x){
             pos.x += 6;
             return false;
@@ -41,6 +44,7 @@ public abstract class Character{
     }
 
     public boolean goLeft(){
+        nextAction = 8;
         if(pos.x > destinationPos.x){
             pos.x -= 6;
             return false;
@@ -74,6 +78,8 @@ public abstract class Character{
 
     public abstract void setStatus();
 
+    public abstract void draw();
+
     public void resetStatus(){
         atk = 0;
         def = 0;
@@ -94,6 +100,11 @@ public abstract class Character{
         else{
             return false;
         }
+    }
+
+    public void setDestinationPos(int x ,int y){
+        destinationPos.x = x;
+        destinationPos.y = y;
     }
 
 }

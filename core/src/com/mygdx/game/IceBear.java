@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import static com.mygdx.game.CuttieBattle.batch;
+
 /**
  * Created by root on 1/4/2560.
  */
@@ -9,8 +11,10 @@ public class IceBear extends Character {
     int buffTime1 = 0;
     int buffTime2 = 0;
 
-    public IceBear(int x, int y) {
-        super(x, y);
+    public IceBear(int x, int y,int whoiam) {
+        super(x, y,whoiam);
+
+        Assest.spBadlogic.flip(true,false);
     }
 
 
@@ -56,7 +60,13 @@ public class IceBear extends Character {
         finalDef = def + defBuff;
     }
 
-//    public void resetStatus(){
+    @Override
+    public void draw() {
+        Assest.spBadlogic.setPosition(pos.x,pos.y);
+        Assest.spBadlogic.draw(batch);
+    }
+
+    //    public void resetStatus(){
 //        atk = 0;
 //        def = 0;
 //        finalDef = 0;

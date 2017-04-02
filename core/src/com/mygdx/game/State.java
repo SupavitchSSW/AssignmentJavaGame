@@ -3,6 +3,8 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 
+import java.util.Currency;
+
 import static com.mygdx.game.CuttieBattle.batch;
 
 /**
@@ -62,34 +64,68 @@ public class State {
                 System.out.println("P2 select"+p2Select);
                 if(p1Confirm == true && p2Confirm == true){
                     currentState++;
+                    setCharacter();
                 }
+                break;
+            case 2:
+                // gameplay
+                if(Gdx.input.isKeyJustPressed(Input.Keys.Q)) {
+                    CuttieBattle.p1.nextAction = 1;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.W)) {
+                    CuttieBattle.p1.nextAction = 2;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.E)) {
+                    CuttieBattle.p1.nextAction = 3;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.R)) {
+                    CuttieBattle.p1.nextAction = 4;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.T)) {
+                    CuttieBattle.p1.nextAction = 5;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_4)) {
+                    CuttieBattle.p2.nextAction = 1;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_5)) {
+                    CuttieBattle.p2.nextAction = 2;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_6)) {
+                    CuttieBattle.p2.nextAction = 3;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_1)) {
+                    CuttieBattle.p2.nextAction = 4;
+                }
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_2)) {
+                    CuttieBattle.p2.nextAction = 5;
+                }
+                break;
         }
     }
 
     public void setCharacter(){
         switch (p1Select){
             case 0:
-                CuttieBattle.P1 = new Grizzly(100,200);
+                CuttieBattle.p1 = new Grizzly(100,200,1);
                 break;
             case 1:
-                CuttieBattle.P1 = new Panda(100,200);
+                CuttieBattle.p1 = new Panda(100,200,1);
                 break;
             case 2:
-                CuttieBattle.P1 = new IceBear(100,200);
+                CuttieBattle.p1 = new IceBear(100,200,1);
                 break;
         }
         switch (p2Select){
             case 0:
-                CuttieBattle.P2 = new Grizzly(800,200);
+                CuttieBattle.p2 = new Grizzly(800,200,2);
                 break;
             case 1:
-                CuttieBattle.P2 = new Panda(800,200);
+                CuttieBattle.p2 = new Panda(800,200,2);
                 break;
             case 2:
-                CuttieBattle.P2 = new IceBear(800,200);
+                CuttieBattle.p2 = new IceBear(800,200,2);
                 break;
         }
-        currentState++;
     }
 
     public void drawMap(){
@@ -113,7 +149,19 @@ public class State {
                     batch.draw(Assest.badlogic,900,500);
                 }
                 break;
+            case 2:
+                break;
+            case 3:
+                break;
         }
+    }
+
+    public void gameEnd(){
+        p1Select = 0;
+        p1Confirm = false;
+        p2Select = 0;
+        p2Confirm = false;
+        currentState = 0;
     }
 
     public int getCurrentState() {

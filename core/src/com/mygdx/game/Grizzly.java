@@ -7,8 +7,8 @@ public class Grizzly extends Character {
 
     int buffTime = 0;
 
-    public Grizzly(int x, int y) {
-        super(x, y);
+    public Grizzly(int x, int y, int whoiam) {
+        super(x, y,whoiam);
     }
 
     @Override
@@ -44,6 +44,11 @@ public class Grizzly extends Character {
 
         finalAtk = atk + atkBuff;
         finalDef = def + defBuff;
+    }
+
+    @Override
+    public void draw() {
+
     }
 
 }
