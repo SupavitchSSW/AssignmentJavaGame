@@ -13,29 +13,11 @@ public class IceBear extends Character {
         super(x, y);
     }
 
-    public void checkMana(){
-        switch (nextAction){
-            case 1: {
-                if (mana - 1 < 0) {
-                    nextAction = 7;
-                }
-                break;
-            }
-            case 4:{
-                if(mana - 2 < 0){
-                    nextAction = 7;
-                }
-                break;
-            }
-            case 5:{
-                if(mana - 4 < 0){
-                    nextAction = 7;
-                }
-            }
-        }
-    }
 
+
+    @Override
     public void setStatus(){
+        System.out.println("Ice bare Set status");
         if(buffTime1 > 1){
             defBuff = 100;
             buffTime1--;
@@ -74,12 +56,26 @@ public class IceBear extends Character {
         finalDef = def + defBuff;
     }
 
-    public void resetStatus(){
-        atk = 0;
-        def = 0;
-        finalDef = 0;
-        finalAtk = 0;
-    }
-
+//    public void resetStatus(){
+//        atk = 0;
+//        def = 0;
+//        finalDef = 0;
+//        finalAtk = 0;
+//    }
+//    public void takeDamage(int dmg){
+//        if(dmg > 0){
+//            // hit
+//            hp -= dmg;
+//        }
+//    }
+//
+//    public boolean isDeath(){
+//        if(hp <= 0){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+//    }
 
 }

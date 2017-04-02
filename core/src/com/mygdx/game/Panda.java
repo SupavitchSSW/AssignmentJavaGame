@@ -9,36 +9,15 @@ public class Panda extends Character {
         super(x, y);
     }
 
-    public void checkMana(){
-        switch (nextAction){
-            case 1: {
-                if (mana - 1 < 0) {
-                    nextAction = 7;
-                }
-                break;
-            }
-            case 4:{
-                if(mana - 2 < 0){
-                    nextAction = 7;
-                }
-                break;
-            }
-            case 5:{
-                if(mana - 4 < 0){
-                    nextAction = 7;
-                }
-            }
-        }
-    }
-
+    @Override
     public void setStatus(){
 
-        if(nextAction == 4){ // skill1 + Def 100 3turn
+        if(nextAction == 4){ // heal 200 hp
 
             hp+=200;
             mana -= 2;
         }
-        else if(nextAction == 5){ // skill2 300 Dmg + 50 posion 2 turn
+        else if(nextAction == 5){ // drack 400
 
             atk = 400;
             hp+=400;
@@ -51,7 +30,7 @@ public class Panda extends Character {
         else if(nextAction == 2){ // defedd 100 Def
             def = 100;
         }
-        else if(nextAction == 3){ // charge 2 mana
+        else if(nextAction == 3){ // charge 1 mana
             mana += 1;
         }else{
             nextAction = 0;
@@ -61,11 +40,5 @@ public class Panda extends Character {
         finalDef = def + defBuff;
     }
 
-    public void resetStatus(){
-        atk = 0;
-        def = 0;
-        finalDef = 0;
-        finalAtk = 0;
-    }
 
 }

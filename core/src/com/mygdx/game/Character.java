@@ -18,8 +18,8 @@ import com.badlogic.gdx.math.Vector2;
     7 Nomana
     8 move
 */
-public class Character{
-    int hp,mana,atk,def,atkBuff,defBuff,finalAtk,finalDef;
+public abstract class Character{
+    int hp = 1000,mana = 0,atk,def,atkBuff,defBuff,finalAtk,finalDef;
     Vector2 pos = new Vector2();
     Vector2 destinationPos = new Vector2();
     Sprite sprite;
@@ -47,6 +47,52 @@ public class Character{
         }
         else {
             return true;
+        }
+    }
+
+    public void checkMana(){
+        switch (nextAction){
+            case 1: {
+                if (mana - 1 < 0) {
+                    nextAction = 7;
+                }
+                break;
+            }
+            case 4:{
+                if(mana - 2 < 0){
+                    nextAction = 7;
+                }
+                break;
+            }
+            case 5:{
+                if(mana - 4 < 0){
+                    nextAction = 7;
+                }
+            }
+        }
+    }
+
+    public abstract void setStatus();
+
+    public void resetStatus(){
+        atk = 0;
+        def = 0;
+        finalDef = 0;
+        finalAtk = 0;
+    }
+    public void takeDamage(int dmg){
+        if(dmg > 0){
+            // hit
+            hp -= dmg;
+        }
+    }
+
+    public boolean isDeath(){
+        if(hp <= 0){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 
