@@ -63,13 +63,13 @@ public class CuttieBattle extends ApplicationAdapter {
 						int second = currentCountTime.getSeconds() - startCountTime.getSeconds();
 						switch (second){
 							case 0:
-								System.out.println("Second 1");
+								//System.out.println("Second 1");
 								break;
 							case 1:
-								System.out.println("Second 2");
+								//System.out.println("Second 2");
 								break;
 							case 2:
-								System.out.println("Second 3");
+								//System.out.println("Second 3");
 								break;
 							default:
 								gameState=1;
@@ -77,7 +77,7 @@ public class CuttieBattle extends ApplicationAdapter {
 						break;
 					case 1:
 						// move to  middle
-						System.out.println("gamestate 1");
+						//System.out.println("gamestate 1");
 						p1.setDestinationPos(500,300);
 						p2.setDestinationPos(800,300);
 						p1.goRight();
@@ -86,12 +86,44 @@ public class CuttieBattle extends ApplicationAdapter {
 						}
 						break;
 					case 2:
+						// call mana
 						System.out.println("P1 = "+p1.nextAction+" | P2 = "+p2.nextAction);
-
+						p1.checkMana();
+						p2.checkMana();
+						System.out.println("P1/HP = "+p1.hp+" P2/HP ="+p2.hp);
+						gameState++;
 						break;
 					case 3:
+						// action
+						gameState++;
+						break;
+					case 4:
+						// call HP
+						boolean p1Hit =  p1.takeDamage(p2.atk + p2.atkBuff);
+						boolean p2Hit =  p2.takeDamage(p1.atk + p1.atkBuff);
+
+						// set actio Hit
+						if(p1Hit == true){
+							p1.nextAction = 6;
+						}
+						if(p2Hit == true){
+							p2.nextAction = 6;
+						}
+
+						//check death
+						if(p1.isDeath()){
+							// p2 win
+							System.out.println("P2 WIN !!");
+						}
+						else if(p2.isDeath()){
+							// p1 win
+							System.out.println("P1 WIN !!");
+						}
+						gameState++;
+						break;
+					case 5:
 						//move to start position
-						System.out.println("go back");
+						//System.out.println("go back");
 						p1.setDestinationPos(100,300);
 						p2.setDestinationPos(1100,300);
 						p1.goLeft();
@@ -99,7 +131,8 @@ public class CuttieBattle extends ApplicationAdapter {
 							gameState++;
 						}
 						break;
-					case 4:
+					case 6:
+						// reset
 						gameState = 0;
 						p1.nextAction = 0;
 						p2.nextAction = 0;

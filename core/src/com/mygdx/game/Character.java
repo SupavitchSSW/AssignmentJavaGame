@@ -18,12 +18,14 @@ import com.badlogic.gdx.math.Vector2;
     7 Nomana
     8 move
 */
+
 public abstract class Character{
     int hp = 1000,mana = 0,atk,def,atkBuff,defBuff,finalAtk,finalDef;
     Vector2 pos = new Vector2();
     Vector2 destinationPos = new Vector2();
     Sprite sprite;
     int nextAction;
+    int drawAction;
     int whoiam = 0;
 
     public Character(int x, int y ,int whoiam){
@@ -86,11 +88,15 @@ public abstract class Character{
         finalDef = 0;
         finalAtk = 0;
     }
-    public void takeDamage(int dmg){
-        if(dmg > 0){
-            // hit
-            hp -= dmg;
+
+    public boolean takeDamage(int dmg){
+        // hit
+        int d = this.def + this.defBuff - dmg;
+        if(d > 0){
+            hp -= d;
+            return true;
         }
+        return false;
     }
 
     public boolean isDeath(){
@@ -106,5 +112,4 @@ public abstract class Character{
         destinationPos.x = x;
         destinationPos.y = y;
     }
-
 }

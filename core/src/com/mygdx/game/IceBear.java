@@ -21,7 +21,7 @@ public class IceBear extends Character {
 
     @Override
     public void setStatus(){
-        System.out.println("Ice bare Set status");
+        System.out.println("Ice bear Set status");
         if(buffTime1 > 1){
             defBuff = 100;
             buffTime1--;
