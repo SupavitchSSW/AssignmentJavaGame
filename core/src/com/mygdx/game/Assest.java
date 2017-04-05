@@ -10,8 +10,10 @@ import javax.xml.soap.Text;
  * Created by root on 1/4/2560.
  */
 public class Assest {
-    static Texture badlogic = new Texture("badlogic.jpg");
+    static Texture badlogic = new Texture("2.jpg");
     static Sprite spBadlogic = new Sprite(badlogic);
+
+
 
 
 }

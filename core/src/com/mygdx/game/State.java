@@ -117,13 +117,13 @@ public class State {
         }
         switch (p2Select){
             case 0:
-                CuttieBattle.p2 = new Grizzly(800,200,2);
+                CuttieBattle.p2 = new Grizzly(1100,200,2);
                 break;
             case 1:
-                CuttieBattle.p2 = new Panda(800,200,2);
+                CuttieBattle.p2 = new Panda(1100,200,2);
                 break;
             case 2:
-                CuttieBattle.p2 = new IceBear(800,200,2);
+                CuttieBattle.p2 = new IceBear(1100,200,2);
                 break;
         }
     }
@@ -144,7 +144,7 @@ public class State {
                 if(p2Select == 0){
                     batch.draw(Assest.badlogic,100,500);
                 }else if(p2Select == 1){
-                    batch.draw(Assest.badlogic,500,500);
+                    batch.draw(Assest.badlogic,500,200);
                 }else if(p2Select == 2){
                     batch.draw(Assest.badlogic,900,500);
                 }

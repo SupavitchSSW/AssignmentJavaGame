@@ -56,7 +56,7 @@ public class CuttieBattle extends ApplicationAdapter {
 				boolean playing = true;
 				switch (gameState){
 					case 0:
-						// count time 3 sec and Input Action
+						//count time 3 sec and Input Action
 						//System.out.println("gamestate 0");
 						state.input();
 						currentCountTime = new Date();
@@ -76,15 +76,34 @@ public class CuttieBattle extends ApplicationAdapter {
 						}
 						break;
 					case 1:
+						// move to  middle
 						System.out.println("gamestate 1");
 						p1.setDestinationPos(500,300);
-						p2.setDestinationPos(500,300);
+						p2.setDestinationPos(800,300);
 						p1.goRight();
 						if(p2.goLeft() == true){
 							gameState++;
 						}
+						break;
+					case 2:
+						System.out.println("P1 = "+p1.nextAction+" | P2 = "+p2.nextAction);
 
 						break;
+					case 3:
+						//move to start position
+						System.out.println("go back");
+						p1.setDestinationPos(100,300);
+						p2.setDestinationPos(1100,300);
+						p1.goLeft();
+						if(p2.goRight() == true){
+							gameState++;
+						}
+						break;
+					case 4:
+						gameState = 0;
+						p1.nextAction = 0;
+						p2.nextAction = 0;
+						startCountTime = new Date();
 					default:playing = false;
 				}
 				p1.draw();
