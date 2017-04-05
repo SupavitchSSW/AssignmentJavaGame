@@ -21,7 +21,7 @@ public class IceBear extends Character {
 
     @Override
     public void setStatus(){
-        System.out.println("Ice bear Set status");
+        //System.out.println("Ice bear Set status");
         if(buffTime1 > 1){
             defBuff = 100;
             buffTime1--;
@@ -47,7 +47,7 @@ public class IceBear extends Character {
              atk = 100;
              mana -= 1;
         }
-        else if(nextAction == 2){ // defedd 100 Def
+        else if(nextAction == 2){ // defend 100 Def
             def = 100;
         }
         else if(nextAction == 3){ // charge 2 mana

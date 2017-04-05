@@ -75,6 +75,7 @@ public abstract class Character{
                     nextAction = 7;
                 }
             }
+            System.out.println((nextAction == 7)?"Mana enough":"Mana not enough");
         }
     }
 

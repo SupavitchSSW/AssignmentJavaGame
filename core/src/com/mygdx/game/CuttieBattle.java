@@ -16,6 +16,7 @@ public class CuttieBattle extends ApplicationAdapter {
 	private Date startCountTime , currentCountTime;
 	State state;
 	int gameState =0;
+	int tempActionP1,tempActionP2;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -74,6 +75,8 @@ public class CuttieBattle extends ApplicationAdapter {
 							default:
 								gameState=1;
 						}
+						tempActionP1 = p1.nextAction;
+						tempActionP2 = p2.nextAction;
 						break;
 					case 1:
 						// move to  middle
@@ -83,14 +86,15 @@ public class CuttieBattle extends ApplicationAdapter {
 						p1.goRight();
 						if(p2.goLeft() == true){
 							gameState++;
+							p1.nextAction = tempActionP1;
+							p2.nextAction = tempActionP2;
 						}
 						break;
 					case 2:
-						// call mana
+						// cal mana
 						System.out.println("P1 = "+p1.nextAction+" | P2 = "+p2.nextAction);
 						p1.checkMana();
 						p2.checkMana();
-						System.out.println("P1/HP = "+p1.hp+" P2/HP ="+p2.hp);
 						gameState++;
 						break;
 					case 3:
@@ -98,10 +102,14 @@ public class CuttieBattle extends ApplicationAdapter {
 						gameState++;
 						break;
 					case 4:
-						// call HP
+						// cal HP
+						p1.setStatus();
+						p2.setStatus();
 						boolean p1Hit =  p1.takeDamage(p2.atk + p2.atkBuff);
 						boolean p2Hit =  p2.takeDamage(p1.atk + p1.atkBuff);
-
+						p1.resetStatus();
+						p2.resetStatus();
+						System.out.println("P1 | "+p1.hp+"/"+p1.mana+"   P2 | "+p2.hp+"/"+p2.mana);
 						// set actio Hit
 						if(p1Hit == true){
 							p1.nextAction = 6;
