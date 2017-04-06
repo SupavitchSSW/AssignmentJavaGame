@@ -29,7 +29,7 @@ public class Assest {
         grizzlyAnimation[3] = new Animation(0.25f,grizzlyAttack1);
         grizzlyAnimation[4] = new Animation(0.25f,grizzlyAttack1);
         grizzlyAnimation[5] = new Animation(0.25f,grizzlyAttack1);
-        grizzlyAnimation[6] = new Animation(0.25f,grizzlyAttack1);
+        grizzlyAnimation[6] = new Animation(0.25f,new TextureRegion(badlogic));
         grizzlyAnimation[7] = new Animation(0.25f,grizzlyAttack1);
         grizzlyAnimation[8] = new Animation(0.25f,grizzlyStandBy);
 

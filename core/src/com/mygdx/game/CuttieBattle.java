@@ -18,6 +18,7 @@ public class CuttieBattle extends ApplicationAdapter {
 	int gameState =0;
 	int tempActionP1,tempActionP2;
 	float deltaTime;
+	boolean p1Hit,p2Hit;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -112,20 +113,13 @@ public class CuttieBattle extends ApplicationAdapter {
 						// cal HP
 						p1.setStatus();
 						p2.setStatus();
-						boolean p1Hit =  p1.takeDamage(p2.finalAtk);
-						boolean p2Hit =  p2.takeDamage(p1.finalAtk);
+						p1Hit =  p1.takeDamage(p2.finalAtk);
+						p2Hit =  p2.takeDamage(p1.finalAtk);
 						p1.resetStatus();
 						p2.resetStatus();
 						//System.out.println("P1 | "+p1.hp+"/"+p1.mana+" Def"+p1.finalDef+"   P2 | "+p2.hp+"/"+p2.mana + " Def "+(p2.finalDef));
 						System.out.println(p1.toString());
 						System.out.println(p2.toString());
-						// set actio Hit
-						if(p1Hit == true){
-							p1.action = 6;
-						}
-						if(p2Hit == true){
-							p2.action = 6;
-						}
 
 						//check death
 						if(p1.isDeath()){
@@ -139,8 +133,32 @@ public class CuttieBattle extends ApplicationAdapter {
 							state.gameEnd();
 						}
 						gameState++;
+						startCountTime = new Date();
 						break;
 					case 5:
+						// set action Hit
+						if(p1Hit == true || p2Hit ==true){
+							if(p1Hit == true){
+								p1.action = 6;
+								System.out.println("P1 Hit");
+							}
+							if(p2Hit == true){
+								p2.action = 6;
+								System.out.println("P2 Hit");
+							}
+							currentCountTime = new Date();
+							int s1 = currentCountTime.getSeconds() - startCountTime.getSeconds();
+							switch (s1){
+								case 0:
+									break;
+
+								default:
+									gameState++;
+							}
+						}
+						else gameState++;
+						break;
+					case 6:
 						//move to start position
 						//System.out.println("go back");
 						p1.setDestinationPos(100,300);
@@ -150,7 +168,7 @@ public class CuttieBattle extends ApplicationAdapter {
 							gameState++;
 						}
 						break;
-					case 6:
+					case 7:
 						// reset
 						gameState = 0;
 						p1.action = 0;
