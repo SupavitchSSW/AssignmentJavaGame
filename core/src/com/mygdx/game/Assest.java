@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -20,7 +22,7 @@ public class Assest {
     TextureRegion grizzlyStandBy = new TextureRegion(new Texture("2.jpg"));
     TextureRegion grizzlyAttack1 = new TextureRegion(new Texture("pandaAttack1.png"));
     TextureRegion grizzlyAttack2 = new TextureRegion(new Texture("pandaAttack2.png"));
-
+    Sound punchSound = Gdx.audio.newSound(Gdx.files.internal("Punch Sound Effect.mp3"));
 
     public Assest(){
         grizzlyAnimation[0] = new Animation(0.25f,grizzlyStandBy,grizzlyAttack1);
@@ -32,8 +34,6 @@ public class Assest {
         grizzlyAnimation[6] = new Animation(0.25f,new TextureRegion(badlogic));
         grizzlyAnimation[7] = new Animation(0.25f,grizzlyAttack1);
         grizzlyAnimation[8] = new Animation(0.25f,grizzlyStandBy);
-
-
     }
 
 }

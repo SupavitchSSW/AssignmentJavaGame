@@ -136,6 +136,8 @@ public abstract class Character{
         destinationPos.y = y;
     }
 
+    abstract public void playSound();
+
     @Override
     public String toString() {
         return this.hp+"/"+this.mana;

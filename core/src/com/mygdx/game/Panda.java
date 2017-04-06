@@ -44,6 +44,11 @@ public class Panda extends Character {
     }
 
     @Override
+    public void playSound() {
+
+    }
+
+    @Override
     public void draw(float time) {
         batch.draw((TextureRegion)(assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
     }

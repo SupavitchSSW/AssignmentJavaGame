@@ -113,16 +113,23 @@ public class CuttieBattle extends ApplicationAdapter {
 						// cal HP
 						p1.setStatus();
 						p2.setStatus();
+						p1.playSound();
+						p2.playSound();
 						p1Hit =  p1.takeDamage(p2.finalAtk);
 						p2Hit =  p2.takeDamage(p1.finalAtk);
 						p1.resetStatus();
 						p2.resetStatus();
+
+
 						//System.out.println("P1 | "+p1.hp+"/"+p1.mana+" Def"+p1.finalDef+"   P2 | "+p2.hp+"/"+p2.mana + " Def "+(p2.finalDef));
 						System.out.println(p1.toString());
 						System.out.println(p2.toString());
 
 						//check death
-						if(p1.isDeath()){
+						if(p1.isDeath() && p2.isDeath()){
+							// draw
+							System.out.println("DRAW");
+						}else if(p1.isDeath()){
 							// p2 win
 							System.out.println("P2 WIN !!");
 							state.gameEnd();
