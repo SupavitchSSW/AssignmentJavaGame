@@ -13,8 +13,6 @@ public class IceBear extends Character {
 
     public IceBear(int x, int y,int whoiam) {
         super(x, y,whoiam);
-
-        Assest.spBadlogic.flip(true,false);
     }
 
 

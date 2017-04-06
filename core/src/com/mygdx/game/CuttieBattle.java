@@ -129,11 +129,12 @@ public class CuttieBattle extends ApplicationAdapter {
 						if(p1.isDeath()){
 							// p2 win
 							System.out.println("P2 WIN !!");
+							state.gameEnd();
 						}
 						else if(p2.isDeath()){
 							// p1 win
 							System.out.println("P1 WIN !!");
-
+							state.gameEnd();
 						}
 						gameState++;
 						break;
@@ -158,10 +159,6 @@ public class CuttieBattle extends ApplicationAdapter {
 				p1.draw();
 				p2.draw();
 				batch.end();
-				break;
-			case 3:
-				// end game
-				state.gameEnd();
 				break;
 		}
 	}
