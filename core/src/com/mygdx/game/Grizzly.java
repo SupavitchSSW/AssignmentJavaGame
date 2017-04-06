@@ -1,5 +1,9 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import static com.mygdx.game.CuttieBattle.batch;
+
 /**
  * Created by root on 1/4/2560.
  */
@@ -13,46 +17,46 @@ public class Grizzly extends Character {
 
     @Override
     public void setStatus(){
-        if(buffTime > 1){
-            atkBuff = 100 ;
+        action = nextAction;
+        if(buffTime > 0){
+            atkBuff += 100 ;
             buffTime--;
         }
 
-        if(nextAction == 4){ // skill1 + Atk 100 3turn
+        if(action == 4){ // skill1 + Atk 100 3turn
             //isBuffActivate = true;
             buffTime += 3;
-            atkBuff = 100;
+            atkBuff += 100;
             mana -= 2;
         }
-        else if(nextAction == 5){ // skill2 600 Dgm
+        else if(action == 5){ // skill2 600 Dgm
             //isBuff2Activate = true
-            atk = 600;
+            atk += 600;
             mana -= 4;
         }
-        else if(nextAction == 1){ // normal attack 150 Dmg
-            atk = 150;
+        else if(action == 1){ // normal attack 150 Dmg
+            atk += 150;
             mana -= 1;
         }
-        else if(nextAction == 2){ // defedd 100 Def
-            def = 100;
+        else if(action == 2){ // defedd 100 Def
+            def += 100;
         }
-        else if(nextAction == 3){ // charge 1 mana
+        else if(action == 3){ // charge 1 mana
             mana += 1;
-        }else{
-            nextAction = 0;
+        }else {
+            action = 0;
         }
 
-        finalAtk = atk + atkBuff;
-        finalDef = def + defBuff;
+        calFinalDamage();
     }
 
     @Override
-    public void draw() {
-
+    public void draw(float time) {
+        batch.draw((TextureRegion)(assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
     }
 
     @Override
     public String toString() {
-        return super.toString() + " bufftime:"+buffTime;
+        return "HP:"+this.hp+" MP:"+this.mana+" nextAction:"+this.nextAction+" atk:"+this.atk+" atkBuff:"+this.atkBuff+" finalAtk:"+this.finalAtk+" def:"+this.def+" defBuff"+this.defBuff+" finalDef:"+this.finalDef + " bufftime:"+buffTime;
     }
 }

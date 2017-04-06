@@ -17,6 +17,7 @@ public class CuttieBattle extends ApplicationAdapter {
 	State state;
 	int gameState =0;
 	int tempActionP1,tempActionP2;
+	float deltaTime;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -73,10 +74,8 @@ public class CuttieBattle extends ApplicationAdapter {
 								//System.out.println("Second 3");
 								break;
 							default:
-								gameState=1;
+								gameState++;
 						}
-						tempActionP1 = p1.nextAction;
-						tempActionP2 = p2.nextAction;
 						break;
 					case 1:
 						// move to  middle
@@ -86,8 +85,6 @@ public class CuttieBattle extends ApplicationAdapter {
 						p1.goRight();
 						if(p2.goLeft() == true){
 							gameState++;
-							p1.nextAction = tempActionP1;
-							p2.nextAction = tempActionP2;
 						}
 						break;
 					case 2:
@@ -96,15 +93,20 @@ public class CuttieBattle extends ApplicationAdapter {
 						p1.checkMana();
 						p2.checkMana();
 						gameState++;
+						startCountTime = new Date();
 						break;
 					case 3:
 						// action
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
+						currentCountTime = new Date();
+						int s = currentCountTime.getSeconds() - startCountTime.getSeconds();
+						switch (s){
+							case 0:
+								break;
+							case 1:
+								break;
+							default:
+								gameState++;
 						}
-						gameState++;
 						break;
 					case 4:
 						// cal HP
@@ -119,10 +121,10 @@ public class CuttieBattle extends ApplicationAdapter {
 						System.out.println(p2.toString());
 						// set actio Hit
 						if(p1Hit == true){
-							p1.nextAction = 6;
+							p1.action = 6;
 						}
 						if(p2Hit == true){
-							p2.nextAction = 6;
+							p2.action = 6;
 						}
 
 						//check death
@@ -151,13 +153,16 @@ public class CuttieBattle extends ApplicationAdapter {
 					case 6:
 						// reset
 						gameState = 0;
-						p1.nextAction = 0;
-						p2.nextAction = 0;
+						p1.action = 0;
+						p2.action = 0;
 						startCountTime = new Date();
 					default:playing = false;
 				}
-				p1.draw();
-				p2.draw();
+				default:;
+
+				deltaTime += Gdx.graphics.getDeltaTime();
+				p1.draw(deltaTime);
+				p2.draw(deltaTime);
 				batch.end();
 				break;
 		}

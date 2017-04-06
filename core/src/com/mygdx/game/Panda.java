@@ -1,14 +1,13 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import static com.mygdx.game.CuttieBattle.batch;
+
 /**
  * Created by root on 1/4/2560.
  */
 public class Panda extends Character {
-
-    @Override
-    public void draw() {
-
-    }
 
     public Panda(int x, int y, int whoiam) {
         super(x, y,whoiam);
@@ -41,8 +40,12 @@ public class Panda extends Character {
             nextAction = 0;
         }
 
-        finalAtk = atk + atkBuff;
-        finalDef = def + defBuff;
+        calFinalDamage();
+    }
+
+    @Override
+    public void draw(float time) {
+        batch.draw((TextureRegion)(assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
     }
 
     @Override

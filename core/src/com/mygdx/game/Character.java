@@ -25,8 +25,9 @@ public abstract class Character{
     Vector2 destinationPos = new Vector2();
     Sprite sprite;
     int nextAction;
-    int drawAction;
+    int action;
     int whoiam = 0;
+    Assest assest = new Assest();
 
     public Character(int x, int y ,int whoiam){
         pos.x = x;
@@ -35,7 +36,7 @@ public abstract class Character{
     }
 
     public boolean goRight(){
-        nextAction = 8;
+        action = 8;
         if(pos.x < destinationPos.x){
             pos.x += 6;
             return false;
@@ -46,7 +47,7 @@ public abstract class Character{
     }
 
     public boolean goLeft(){
-        nextAction = 8;
+        action = 8;
         if(pos.x > destinationPos.x){
             pos.x -= 6;
             return false;
@@ -79,17 +80,36 @@ public abstract class Character{
                 }
             }
         }
+        action = nextAction;
     }
 
     public abstract void setStatus();
 
-    public abstract void draw();
+    public abstract void draw(float time);
 
     public void resetStatus(){
         atk = 0;
         def = 0;
+        atkBuff = 0;
+        defBuff = 0;
         finalDef = 0;
         finalAtk = 0;
+        nextAction = 0;
+    }
+
+    public void calFinalDamage(){
+        if(atk > 0 ){
+            finalAtk = atk + atkBuff;
+        }
+        else {
+            finalAtk =0;
+        }
+
+        if(def > 0){
+            finalDef = def + defBuff;
+        }else{
+            finalDef = 0;
+        }
     }
 
     public boolean takeDamage(int dmg){
@@ -118,6 +138,6 @@ public abstract class Character{
 
     @Override
     public String toString() {
-        return "HP:"+this.hp+" MP:"+this.mana+" nextAction:"+this.nextAction+" atk:"+this.atk+" atkBuff:"+this.atkBuff+" finalAtk:"+this.finalAtk+" def:"+this.def+" defBuff"+this.defBuff+" finalDef:"+this.finalDef;
+        return this.hp+"/"+this.mana;
     }
 }
