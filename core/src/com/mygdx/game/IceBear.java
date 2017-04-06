@@ -22,17 +22,19 @@ public class IceBear extends Character {
     @Override
     public void setStatus(){
         //System.out.println("Ice bear Set status");
-        if(buffTime1 > 1){
+        if(buffTime1 > 0){
             defBuff = 100;
             buffTime1--;
+        }else{
+            defBuff = 0;
         }
-        if(buffTime2 > 1){
+        if(buffTime2 > 0){
             atkBuff = 50;
             buffTime2--;
         }
         if(nextAction == 4){ // skill1 + Def 100 3turn
             //isBuffActivate = true;
-            buffTime1 += 3;
+            buffTime1 += 2;
             defBuff = 100;
             mana -= 2;
         }
@@ -55,7 +57,6 @@ public class IceBear extends Character {
         }else{
           nextAction = 0;
         }
-
         finalAtk = atk + atkBuff;
         finalDef = def + defBuff;
     }
@@ -64,6 +65,11 @@ public class IceBear extends Character {
     public void draw() {
         Assest.spBadlogic.setPosition(pos.x,pos.y);
         Assest.spBadlogic.draw(batch);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " buffTime1:"+buffTime1+" bufftime2:"+buffTime2;
     }
 
     //    public void resetStatus(){

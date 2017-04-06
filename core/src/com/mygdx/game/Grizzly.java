@@ -51,4 +51,8 @@ public class Grizzly extends Character {
 
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " bufftime:"+buffTime;
+    }
 }

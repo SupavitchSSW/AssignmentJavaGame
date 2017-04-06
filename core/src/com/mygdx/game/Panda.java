@@ -45,5 +45,8 @@ public class Panda extends Character {
         finalDef = def + defBuff;
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

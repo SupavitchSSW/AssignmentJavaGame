@@ -61,21 +61,23 @@ public abstract class Character{
             case 1: {
                 if (mana - 1 < 0) {
                     nextAction = 7;
+                    System.out.println("not enought Mana");
                 }
                 break;
             }
             case 4:{
                 if(mana - 2 < 0){
                     nextAction = 7;
+                    System.out.println("not enought Mana");
                 }
                 break;
             }
             case 5:{
                 if(mana - 4 < 0){
                     nextAction = 7;
+                    System.out.println("not enought Mana");
                 }
             }
-            System.out.println((nextAction == 7)?"Mana enough":"Mana not enough");
         }
     }
 
@@ -92,9 +94,9 @@ public abstract class Character{
 
     public boolean takeDamage(int dmg){
         // hit
-        int d = this.def + this.defBuff - dmg;
-        if(d > 0){
-            hp -= d;
+        int d = this.finalDef - dmg;
+        if(d < 0){
+            hp += d;
             return true;
         }
         return false;
@@ -112,5 +114,10 @@ public abstract class Character{
     public void setDestinationPos(int x ,int y){
         destinationPos.x = x;
         destinationPos.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "HP:"+this.hp+" MP:"+this.mana+" nextAction:"+this.nextAction+" atk:"+this.atk+" atkBuff:"+this.atkBuff+" finalAtk:"+this.finalAtk+" def:"+this.def+" defBuff"+this.defBuff+" finalDef:"+this.finalDef;
     }
 }

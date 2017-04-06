@@ -99,17 +99,24 @@ public class CuttieBattle extends ApplicationAdapter {
 						break;
 					case 3:
 						// action
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 						gameState++;
 						break;
 					case 4:
 						// cal HP
 						p1.setStatus();
 						p2.setStatus();
-						boolean p1Hit =  p1.takeDamage(p2.atk + p2.atkBuff);
-						boolean p2Hit =  p2.takeDamage(p1.atk + p1.atkBuff);
+						boolean p1Hit =  p1.takeDamage(p2.finalAtk);
+						boolean p2Hit =  p2.takeDamage(p1.finalAtk);
 						p1.resetStatus();
 						p2.resetStatus();
-						System.out.println("P1 | "+p1.hp+"/"+p1.mana+"   P2 | "+p2.hp+"/"+p2.mana);
+						//System.out.println("P1 | "+p1.hp+"/"+p1.mana+" Def"+p1.finalDef+"   P2 | "+p2.hp+"/"+p2.mana + " Def "+(p2.finalDef));
+						System.out.println(p1.toString());
+						System.out.println(p2.toString());
 						// set actio Hit
 						if(p1Hit == true){
 							p1.nextAction = 6;
@@ -126,6 +133,7 @@ public class CuttieBattle extends ApplicationAdapter {
 						else if(p2.isDeath()){
 							// p1 win
 							System.out.println("P1 WIN !!");
+
 						}
 						gameState++;
 						break;
@@ -157,36 +165,6 @@ public class CuttieBattle extends ApplicationAdapter {
 				break;
 		}
 	}
-
-
-	/*
-
-	public void setCharacter(){
-		switch (state.getp1Select()){
-			case 0:
-				p1 = new Grizzly(100,200);
-				break;
-			case 1:
-				p1 = new Panda(100,200);
-				break;
-			case 2:
-				91 = new IceBear(100,200);
-				break;
-		}
-		switch (state.getp2Select()){
-			case 0:
-				p2 = new Grizzly(800,200);
-				break;
-			case 1:
-				p2 = new Panda(800,200);
-				break;
-			case 2:
-				p2 = new IceBear(800,200);
-				break;
-		}
-		state.setCurrentState(3);
-	}
-	 */
 
 	@Override
 	public void dispose () {
