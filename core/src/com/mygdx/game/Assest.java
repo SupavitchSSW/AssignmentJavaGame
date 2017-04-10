@@ -19,10 +19,16 @@ public class Assest {
     static Animation grizzlyAnimation[] = new Animation[9];
     static Animation pandaAnimation[] = new Animation[9];
     static Animation iceBearAnimation[] = new Animation[9];
-    static Texture badlogic = new Texture("badlogic.jpg");
+    static Texture SelectBG = new Texture("pic/Game/characterSelectBG.jpg");
     static Texture gameplayBG = new Texture("pic/Game/gameplayBg.jpg");
+    static Texture p1Pin = new Texture("pic/Game/Player1.png");
+    static Texture p2Pin = new Texture("pic/Game/Player2.png");
+    static Texture grizzlyPreview = new Texture("pic/SkillPreview/GrizzlySkillPreview.png");
+    static Texture icebearPreview = new Texture("pic/SkillPreview/IcebearSkillPreview.png");
+    static Texture pandaPreview = new Texture("pic/SkillPreview/PandaSkillPreview.png");
     static Sound punchSound = Gdx.audio.newSound(Gdx.files.internal("Punch Sound Effect.mp3"));
     static Music gamePlayBGM = Gdx.audio.newMusic(Gdx.files.internal("sound/music/BG03.wav"));
+
 
     public Assest(){
 /*
