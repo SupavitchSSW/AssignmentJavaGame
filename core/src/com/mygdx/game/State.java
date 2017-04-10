@@ -65,6 +65,8 @@ public class State {
                 if(p1Confirm == true && p2Confirm == true){
                     currentState++;
                     setCharacter();
+                    Assest.gamePlayBGM.play();
+                    Assest.gamePlayBGM.setLooping(true);
                 }
                 break;
             case 2:
@@ -150,6 +152,7 @@ public class State {
                 }
                 break;
             case 2:
+                batch.draw(Assest.gameplayBG,0,0,1600,800);
                 break;
             case 3:
                 break;

@@ -82,8 +82,8 @@ public class CuttieBattle extends ApplicationAdapter {
 					case 1:
 						// move to  middle
 						//System.out.println("gamestate 1");
-						p1.setDestinationPos(500,300);
-						p2.setDestinationPos(800,300);
+						p1.setDestinationPos(450,300);
+						p2.setDestinationPos(850,300);
 						p1.goRight();
 						if(p2.goLeft() == true){
 							gameState++;

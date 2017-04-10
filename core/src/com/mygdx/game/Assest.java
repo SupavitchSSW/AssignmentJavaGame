@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -19,7 +20,9 @@ public class Assest {
     static Animation pandaAnimation[] = new Animation[9];
     static Animation iceBearAnimation[] = new Animation[9];
     static Texture badlogic = new Texture("badlogic.jpg");
+    static Texture gameplayBG = new Texture("pic/Game/gameplayBg.jpg");
     static Sound punchSound = Gdx.audio.newSound(Gdx.files.internal("Punch Sound Effect.mp3"));
+    static Music gamePlayBGM = Gdx.audio.newMusic(Gdx.files.internal("sound/music/BG03.wav"));
 
     public Assest(){
 /*
@@ -36,6 +39,11 @@ public class Assest {
     }
 
     public static void load(){
+
+        //gameplay bg
+
+
+
         // grizzly standby animation
         TextureRegion grizzlyStandBy[] = new TextureRegion[4];
         grizzlyStandBy[0] = new TextureRegion(new Texture("pic/CharacterReal/GrizzlyStand1.png"));
@@ -124,8 +132,8 @@ public class Assest {
 
         // grizzly standby animation
         TextureRegion pandaStandby[] = new TextureRegion[2];
-        icebearStandby[0] = new TextureRegion(new Texture("pic/CharacterReal/PandaStand1.png"));
-        icebearStandby[1] = new TextureRegion(new Texture("pic/CharacterReal/PandaStand2.png"));
+        pandaStandby[0] = new TextureRegion(new Texture("pic/CharacterReal/PandaStand1.png"));
+        pandaStandby[1] = new TextureRegion(new Texture("pic/CharacterReal/PandaStand2.png"));
         pandaAnimation[0] = new Animation(0.25f,pandaStandby);
 
         // grizzly attack
@@ -160,9 +168,5 @@ public class Assest {
 
         //grizzly walk
         pandaAnimation[8] = new Animation(0.25f,pandaStandby);
-
-
-
     }
-
 }
