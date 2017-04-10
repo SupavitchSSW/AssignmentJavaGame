@@ -34,6 +34,7 @@ public class State {
                 }
                 break;
             case 1:
+                //character select screen
                 if(Gdx.input.isKeyJustPressed(Input.Keys.A)){
                     if(getP1Select() > 0 && p1Confirm == false ){
                         setP1Select(getP1Select() - 1);
@@ -108,24 +109,24 @@ public class State {
     public void setCharacter(){
         switch (p1Select){
             case 0:
-                CuttieBattle.p1 = new Grizzly(100,200,1);
+                CuttieBattle.p1 = new IceBear(100,200,1);
                 break;
             case 1:
-                CuttieBattle.p1 = new Panda(100,200,1);
+                CuttieBattle.p1 = new Grizzly(100,200,1);
                 break;
             case 2:
-                CuttieBattle.p1 = new IceBear(100,200,1);
+                CuttieBattle.p1 = new Panda(100,200,1);
                 break;
         }
         switch (p2Select){
             case 0:
-                CuttieBattle.p2 = new Grizzly(1100,200,2);
+                CuttieBattle.p2 = new IceBear(1100,200,2);
                 break;
             case 1:
-                CuttieBattle.p2 = new Panda(1100,200,2);
+                CuttieBattle.p2 = new Grizzly(1100,200,2);
                 break;
             case 2:
-                CuttieBattle.p2 = new IceBear(1100,200,2);
+                CuttieBattle.p2 = new Panda(1100,200,2);
                 break;
         }
     }
@@ -135,20 +136,22 @@ public class State {
             case 0:
                 break;
             case 1:
+                batch.draw(Assest.SelectBG,0,0,1600,800);
                 if(p1Select == 0){
-                    batch.draw(Assest.badlogic,100,700);
+                    batch.draw(Assest.p1Pin,480,500,100,100);
+                    batch.draw(Assest.icebearPreview,50,400,500,300);
                 }else if(p1Select == 1){
-                    batch.draw(Assest.badlogic,500,700);
+                    batch.draw(Assest.p1Pin,780,500,100,100);
                 }else if(p1Select == 2){
-                    batch.draw(Assest.badlogic,900,700);
+                    batch.draw(Assest.p1Pin,1050,500,100,100);
                 }
 
                 if(p2Select == 0){
-                    batch.draw(Assest.badlogic,100,500);
+                    batch.draw(Assest.p2Pin,550,500,100,100);
                 }else if(p2Select == 1){
-                    batch.draw(Assest.badlogic,500,200);
+                    batch.draw(Assest.p2Pin,850,500,100,100);
                 }else if(p2Select == 2){
-                    batch.draw(Assest.badlogic,900,500);
+                    batch.draw(Assest.p2Pin,1120,500,100,100);
                 }
                 break;
             case 2:

@@ -22,7 +22,6 @@ public class CuttieBattle extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
 		state = new State();
 		Assest.load();
 	}
