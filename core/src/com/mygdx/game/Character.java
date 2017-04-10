@@ -27,7 +27,6 @@ public abstract class Character{
     int nextAction;
     int action;
     int whoiam = 0;
-    Assest assest = new Assest();
 
     public Character(int x, int y ,int whoiam){
         pos.x = x;

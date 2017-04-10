@@ -24,6 +24,7 @@ public class CuttieBattle extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		state = new State();
+		Assest.load();
 	}
 
 	@Override
@@ -71,9 +72,9 @@ public class CuttieBattle extends ApplicationAdapter {
 							case 1:
 								//System.out.println("Second 2");
 								break;
-							case 2:
+							//case 2:
 								//System.out.println("Second 3");
-								break;
+								//break;
 							default:
 								gameState++;
 						}
@@ -147,11 +148,11 @@ public class CuttieBattle extends ApplicationAdapter {
 						if(p1Hit == true || p2Hit ==true){
 							if(p1Hit == true){
 								p1.action = 6;
-								System.out.println("P1 Hit");
+								//System.out.println("P1 Hit");
 							}
 							if(p2Hit == true){
 								p2.action = 6;
-								System.out.println("P2 Hit");
+								//System.out.println("P2 Hit");
 							}
 							currentCountTime = new Date();
 							int s1 = currentCountTime.getSeconds() - startCountTime.getSeconds();
@@ -180,6 +181,8 @@ public class CuttieBattle extends ApplicationAdapter {
 						gameState = 0;
 						p1.action = 0;
 						p2.action = 0;
+						p1Hit = false;
+						p2Hit = false;
 						startCountTime = new Date();
 					default:playing = false;
 				}

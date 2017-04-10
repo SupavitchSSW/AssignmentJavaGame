@@ -53,13 +53,13 @@ public class Grizzly extends Character {
     @Override
     public void playSound() {
         if(action == 1){
-            assest.punchSound.play(1.0f);
+            Assest.punchSound.play(1.0f);
         }
     }
 
     @Override
     public void draw(float time) {
-        batch.draw((TextureRegion)(assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        batch.draw((TextureRegion)(Assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
     }
 
     @Override

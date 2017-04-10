@@ -68,7 +68,7 @@ public class IceBear extends Character {
 
     @Override
     public void draw(float time) {
-        batch.draw((TextureRegion)(assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        batch.draw((TextureRegion)(Assest.iceBearAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
     }
 
     @Override
