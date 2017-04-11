@@ -23,8 +23,8 @@ public class Panda extends Character {
         }
         else if(nextAction == 5){ // drack 400
 
-            atk = 400;
-            hp+=400;
+            atk = 300;
+            hp+=300;
             mana -= 4;
         }
         else if(nextAction == 1){ // normal attack 100 Dmg

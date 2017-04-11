@@ -57,9 +57,22 @@ public class Grizzly extends Character {
         }
     }
 
+    private TextureRegion a,b;
     @Override
     public void draw(float time) {
-        batch.draw((TextureRegion)(Assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        //batch.draw((TextureRegion)(Assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        a = (TextureRegion)(Assest.grizzlyAnimation[action].getKeyFrame(time,true));
+        if(whoiam == 1 && a.isFlipX() == false &&  b!= a){
+            a.flip(true,false);
+            b = a;
+        }
+
+        if(whoiam == 1){
+            batch.draw(a,pos.x,pos.y);
+        }else{
+            batch.draw((TextureRegion)(Assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        }
+
     }
 
     @Override
