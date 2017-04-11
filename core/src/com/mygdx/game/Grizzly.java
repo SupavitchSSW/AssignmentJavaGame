@@ -1,6 +1,10 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import javax.xml.soap.Text;
 
 import static com.mygdx.game.CuttieBattle.batch;
 
@@ -57,9 +61,21 @@ public class Grizzly extends Character {
         }
     }
 
+//    public void load(){
+//        for(int i  = 0;i<9;i++){
+//            a[i] = (TextureRegion) Assest.grizzlyAnimation[action].getKeyFrame(time,true);
+//        }
+//    }
+    TextureRegion a,b ;
+    int saveA = -1;
     @Override
     public void draw(float time) {
-        batch.draw((TextureRegion)(Assest.grizzlyAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        a = (TextureRegion) Assest.grizzlyAnimation[action].getKeyFrame(time,true);
+        if(whoiam == 2 && a != b && a.isFlipX() != true){
+            a.flip(true,false);
+            b = a;
+        }
+        batch.draw(a, pos.x,pos.y);
     }
 
     @Override

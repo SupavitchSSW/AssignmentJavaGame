@@ -19,6 +19,9 @@ public class Assest {
     static Animation grizzlyAnimation[] = new Animation[9];
     static Animation pandaAnimation[] = new Animation[9];
     static Animation iceBearAnimation[] = new Animation[9];
+    static Animation grizzlyAnimationFlip[] = new Animation[9];
+    static Animation pandaAnimationFlip[] = new Animation[9];
+    static Animation iceBearAnimationFlip[] = new Animation[9];
     static Texture SelectBG = new Texture("assets/pic/Game/characterSelectBG.jpg");
     static Texture gameplayBG = new Texture("assets/pic/Game/gameplayBg.jpg");
     static Texture p1Pin = new Texture("assets/pic/Game/Player1.png");

@@ -19,6 +19,7 @@ import com.badlogic.gdx.math.Vector2;
     8 move
 */
 
+
 public abstract class Character{
     int hp = 1000,mana = 0,atk,def,atkBuff,defBuff,finalAtk,finalDef;
     Vector2 pos = new Vector2();
