@@ -135,23 +135,29 @@ public class State {
         switch (currentState){
             case 0:
                 break;
+
             case 1:
                 batch.draw(Assest.SelectBG,0,0,1600,800);
                 if(p1Select == 0){
                     batch.draw(Assest.p1Pin,480,500,100,100);
-                    batch.draw(Assest.icebearPreview,50,200);
+                    batch.draw(Assest.icebearPreview,-100,400);
                 }else if(p1Select == 1){
                     batch.draw(Assest.p1Pin,780,500,100,100);
+                    batch.draw(Assest.grizzlyPreview,-100,400);
                 }else if(p1Select == 2){
                     batch.draw(Assest.p1Pin,1050,500,100,100);
+                    batch.draw(Assest.pandaPreview,-100,400);
                 }
 
                 if(p2Select == 0){
                     batch.draw(Assest.p2Pin,550,500,100,100);
+                    batch.draw(Assest.icebearPreview,920,400);
                 }else if(p2Select == 1){
                     batch.draw(Assest.p2Pin,850,500,100,100);
+                    batch.draw(Assest.grizzlyPreview,920,400);
                 }else if(p2Select == 2){
                     batch.draw(Assest.p2Pin,1120,500,100,100);
+                    batch.draw(Assest.pandaPreview,920,400);
                 }
                 break;
             case 2:
