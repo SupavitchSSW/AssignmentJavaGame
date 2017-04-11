@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input;
 import java.util.Currency;
 
 import static com.mygdx.game.CuttieBattle.batch;
+import static com.mygdx.game.CuttieBattle.p2;
 
 /**
  * Created by root on 2/4/2560.
@@ -18,8 +19,8 @@ public class State {
      */
 
     private int currentState = 0;
-    private int p1Select = 0;
-    private int p2Select = 0;
+    int p1Select = 0;
+    int p2Select = 2;
     private boolean p1Confirm,p2Confirm;
 
 
@@ -36,39 +37,57 @@ public class State {
             case 1:
                 //character select screen
                 if(Gdx.input.isKeyJustPressed(Input.Keys.A)){
-                    if(getP1Select() > 0 && p1Confirm == false ){
-                        setP1Select(getP1Select() - 1);
+//                    if(getP1Select() > 0 && p1Confirm == false ){
+//                        setP1Select(getP1Select() - 1);
+//                    }
+                    if(p1Select > 0 && p1Confirm == false){
+                        if(p2Select != p1Select-1){
+                            p1Select--;
+                        }else if(p1Select == 2) {
+                            p1Select-=2;
+                        }
                     }
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.D)){
-                    if(getP1Select() < 2 && p1Confirm == false){
-                        setP1Select(getP1Select() + 1);
+                    if(p1Select < 2 && p1Confirm == false){
+                        if(p2Select != p1Select+1){
+                            p1Select++;
+                        }else if(p1Select == 0) {
+                            p1Select+=2;
+                        }
                     }
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
                     p1Confirm = true;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT)){
-                    if(getP2Select() > 0 && p2Confirm == false){
-                        setP2Select(getP2Select() - 1);
+                    if(p2Select > 0 && p2Confirm == false){
+                        if(p2Select-1 != p1Select){
+                            p2Select--;
+                        }else if(p2Select == 2) {
+                            p2Select-=2;
+                        }
                     }
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)){
-                    if(getP2Select() < 2 && p2Confirm == false){
-                        setP2Select(getP2Select() + 1);
+                    if(p2Select < 2 && p2Confirm == false){
+                        if(p2Select+1 != p1Select){
+                            p2Select++;
+                        }else if(p2Select == 0) {
+                            p2Select+=2;
+                        }
                     }
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
                     p2Confirm = true;
                 }
-                System.out.println("P1 select"+p1Select);
-                System.out.println("P2 select"+p2Select);
                 if(p1Confirm == true && p2Confirm == true){
                     currentState++;
                     setCharacter();
                     Assest.gamePlayBGM.play();
                     Assest.gamePlayBGM.setLooping(true);
                 }
+                //System.out.println("P1"+p1Select+"P2"+p2Select);
                 break;
             case 2:
                 // gameplay
@@ -137,6 +156,7 @@ public class State {
                 break;
 
             case 1:
+
                 batch.draw(Assest.SelectBG,0,0,1600,800);
                 if(p1Select == 0){
                     batch.draw(Assest.p1Pin,480,500,100,100);
