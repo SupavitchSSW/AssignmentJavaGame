@@ -139,7 +139,7 @@ public class State {
                 batch.draw(Assest.SelectBG,0,0,1600,800);
                 if(p1Select == 0){
                     batch.draw(Assest.p1Pin,480,500,100,100);
-                    batch.draw(Assest.icebearPreview,50,400,500,300);
+                    batch.draw(Assest.icebearPreview,50,200);
                 }else if(p1Select == 1){
                     batch.draw(Assest.p1Pin,780,500,100,100);
                 }else if(p1Select == 2){
