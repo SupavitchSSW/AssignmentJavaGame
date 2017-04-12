@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 
 import static com.mygdx.game.CuttieBattle.batch;
 
@@ -13,13 +14,17 @@ public class Grizzly extends Character {
 
     public Grizzly(int x, int y, int whoiam) {
         super(x, y,whoiam);
-        if(whoiam == 2){
-            hpBarPos.x = 0;
-            hpBarPos.y = 500;
+        if(whoiam == 1){
+            statusBarPos.x = 0;
+            statusBarPos.y = 500;
+            hpBarPos.add(statusBarPos.x+100,statusBarPos.y+100);
+            manaBarPos.add(statusBarPos.x+50,statusBarPos.y+50);
         }else{
-            hpBarPos.x = 1000;
-            hpBarPos.y = 500;
-            Assest.grizzlyHpBar.flip(true,false);
+            statusBarPos.x = 1000;
+            statusBarPos.y = 500;
+            Assest.grizzlyStatusBar.flip(true,false);
+            hpBarPos.add(statusBarPos.x+100,statusBarPos.y+100);
+            manaBarPos.add(statusBarPos.x+50,statusBarPos.y+50);
         }
     }
 
@@ -58,8 +63,15 @@ public class Grizzly extends Character {
         calFinalDamage();
     }
 
-    public void drawHpBar(){
-        batch.draw(Assest.grizzlyHpBar,hpBarPos.x,hpBarPos.y);
+
+    public void drawStatusBar(){
+        batch.draw(Assest.grizzlyStatusBar,statusBarPos.x,statusBarPos.y);
+        int hpW = hpBar.getRegionWidth()*hp/1000;
+        if(hp <= 0){
+            hpW = 0;
+        }
+        batch.draw(hpBar,0,0,hpW,hpBar.getRegionHeight());
+        batch.draw(manaBar[mana],0,100);
     }
 
     @Override
@@ -79,7 +91,7 @@ public class Grizzly extends Character {
             b = a;
         }
         batch.draw(a,pos.x,pos.y);
-        drawHpBar();
+        drawStatusBar();
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -23,8 +25,12 @@ public abstract class Character{
     int hp = 1000,mana = 0,atk,def,atkBuff,defBuff,finalAtk,finalDef;
     Vector2 pos = new Vector2();
     Vector2 destinationPos = new Vector2();
-    Vector2 hpBarPos = new Vector2();
+    Vector2 statusBarPos = new Vector2();
+    Vector2 hpBarPos = new Vector2(); // 366 , 190
+    Vector2 manaBarPos = new Vector2();// 30 , 138
     Sprite sprite;
+    TextureRegion hpBar = new TextureRegion(new Texture("assets/pic/Game/HPFull.png"));
+    TextureRegion manaBar[] = new TextureRegion[6];
     int nextAction;
     int action;
     int whoiam = 0;
@@ -34,6 +40,12 @@ public abstract class Character{
         pos.x = x;
         pos.y = y;
         this.whoiam = whoiam;
+        for(int i =0;i<6;i++){
+            manaBar[i] = new TextureRegion(new Texture("assets/pic/Game/Mana"+i+".png"));
+            if(whoiam == 2){
+                manaBar[i].flip(true,false);
+            }
+        }
     }
 
     public boolean goRight(){

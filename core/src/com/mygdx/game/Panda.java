@@ -11,13 +11,13 @@ public class Panda extends Character {
 
     public Panda(int x, int y, int whoiam) {
         super(x, y,whoiam);
-        if(whoiam == 2){
-            hpBarPos.x = 0;
-            hpBarPos.y = 500;
+        if(whoiam == 1){
+            statusBarPos.x = 0;
+            statusBarPos.y = 500;
         }else{
-            hpBarPos.x = 1000;
-            hpBarPos.y = 500;
-            Assest.icebearHpBar.flip(true,false);
+            statusBarPos.x = 1000;
+            statusBarPos.y = 500;
+            Assest.pandaStatusBar.flip(true,false);
         }
     }
 
@@ -50,8 +50,8 @@ public class Panda extends Character {
 
         calFinalDamage();
     }
-    public void drawHpBar(){
-        batch.draw(Assest.pandaHpBar,hpBarPos.x,hpBarPos.y);
+    public void drawStatusBar(){
+        batch.draw(Assest.pandaStatusBar,statusBarPos.x,statusBarPos.y);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Panda extends Character {
             b = a;
         }
         batch.draw(a,pos.x,pos.y);
-        drawHpBar();
+        drawStatusBar();
     }
 
     @Override

@@ -19,9 +19,9 @@ public class Assest {
     static Animation grizzlyAnimation[] = new Animation[9];
     static Animation pandaAnimation[] = new Animation[9];
     static Animation iceBearAnimation[] = new Animation[9];
-    static TextureRegion grizzlyHpBar = new TextureRegion(new Texture("assets/pic/Game/HPManagrizzlymix.png"));
-    static TextureRegion pandaHpBar = new TextureRegion(new Texture("assets/pic/Game/HPManaPandamix.png"));
-    static TextureRegion icebearHpBar = new TextureRegion(new Texture("assets/pic/Game/HPManaIcebearmix.png"));
+    static TextureRegion grizzlyStatusBar = new TextureRegion(new Texture("assets/pic/Game/HPManagrizzlymix.png"));
+    static TextureRegion pandaStatusBar = new TextureRegion(new Texture("assets/pic/Game/HPManaPandamix.png"));
+    static TextureRegion icebearStatusBar = new TextureRegion(new Texture("assets/pic/Game/HPManaIcebearmix.png"));
     static Texture SelectBG = new Texture("assets/pic/Game/characterSelectBG.jpg");
     static Texture gameplayBG = new Texture("assets/pic/Game/gameplayBg.jpg");
     static Texture p1Pin = new Texture("assets/pic/Game/Player1.png");

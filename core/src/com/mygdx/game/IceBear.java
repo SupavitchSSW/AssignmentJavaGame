@@ -15,13 +15,13 @@ public class IceBear extends Character {
 
     public IceBear(int x, int y, int whoiam) {
         super(x, y, whoiam);
-        if (whoiam == 2) {
-            hpBarPos.x = 0;
-            hpBarPos.y = 500;
+        if (whoiam == 1) {
+            statusBarPos.x = 0;
+            statusBarPos.y = 500;
         } else {
-            hpBarPos.x = 1000;
-            hpBarPos.y = 500;
-            Assest.icebearHpBar.flip(true, false);
+            statusBarPos.x = 1000;
+            statusBarPos.y = 500;
+            Assest.icebearStatusBar.flip(true, false);
         }
     }
 
@@ -64,8 +64,8 @@ public class IceBear extends Character {
 
     }
 
-    public void drawHpBar(){
-        batch.draw(Assest.icebearHpBar,hpBarPos.x,hpBarPos.y);
+    public void drawStatusBar(){
+        batch.draw(Assest.icebearStatusBar,statusBarPos.x,statusBarPos.y);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class IceBear extends Character {
             b = a;
         }
         batch.draw(a, pos.x, pos.y);
-        drawHpBar();
+        drawStatusBar();
     }
 
     @Override
