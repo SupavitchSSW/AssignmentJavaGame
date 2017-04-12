@@ -23,10 +23,12 @@ public abstract class Character{
     int hp = 1000,mana = 0,atk,def,atkBuff,defBuff,finalAtk,finalDef;
     Vector2 pos = new Vector2();
     Vector2 destinationPos = new Vector2();
+    Vector2 hpBarPos = new Vector2();
     Sprite sprite;
     int nextAction;
     int action;
     int whoiam = 0;
+
 
     public Character(int x, int y ,int whoiam){
         pos.x = x;

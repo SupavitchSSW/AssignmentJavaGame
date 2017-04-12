@@ -13,6 +13,14 @@ public class Grizzly extends Character {
 
     public Grizzly(int x, int y, int whoiam) {
         super(x, y,whoiam);
+        if(whoiam == 2){
+            hpBarPos.x = 0;
+            hpBarPos.y = 500;
+        }else{
+            hpBarPos.x = 1000;
+            hpBarPos.y = 500;
+            Assest.grizzlyHpBar.flip(true,false);
+        }
     }
 
     @Override
@@ -50,6 +58,10 @@ public class Grizzly extends Character {
         calFinalDamage();
     }
 
+    public void drawHpBar(){
+        batch.draw(Assest.grizzlyHpBar,hpBarPos.x,hpBarPos.y);
+    }
+
     @Override
     public void playSound() {
         if(action == 1){
@@ -67,6 +79,7 @@ public class Grizzly extends Character {
             b = a;
         }
         batch.draw(a,pos.x,pos.y);
+        drawHpBar();
     }
 
     @Override

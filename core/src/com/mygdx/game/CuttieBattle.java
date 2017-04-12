@@ -81,6 +81,7 @@ public class CuttieBattle extends ApplicationAdapter {
 					case 1:
 						// move to  middle
 						//System.out.println("gamestate 1");
+						state.input();
 						p1.setDestinationPos(450,300);
 						p2.setDestinationPos(850,300);
 						p1.goRight();

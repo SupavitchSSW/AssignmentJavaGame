@@ -8,52 +8,55 @@ import static com.mygdx.game.CuttieBattle.batch;
  * Created by root on 1/4/2560.
  */
 public class IceBear extends Character {
-//    boolean isBuffActivate = false;
+    //    boolean isBuffActivate = false;
 //    boolean isBuff2Activate = false;
     int buffTime1 = 0;
     int buffTime2 = 0;
 
-    public IceBear(int x, int y,int whoiam) {
-        super(x, y,whoiam);
+    public IceBear(int x, int y, int whoiam) {
+        super(x, y, whoiam);
+        if (whoiam == 2) {
+            hpBarPos.x = 0;
+            hpBarPos.y = 500;
+        } else {
+            hpBarPos.x = 1000;
+            hpBarPos.y = 500;
+            Assest.icebearHpBar.flip(true, false);
+        }
     }
 
 
-
     @Override
-    public void setStatus(){
+    public void setStatus() {
         //System.out.println("Ice bear Set status");
-        if(buffTime1 > 0){
+        if (buffTime1 > 0) {
             def += 100;
             buffTime1--;
         }
-        if(buffTime2 > 0){
+        if (buffTime2 > 0) {
             atk += 50;
             buffTime2--;
         }
-        if(nextAction == 4){ // skill1 + Def 100 3turn
+        if (nextAction == 4) { // skill1 + Def 100 3turn
             //isBuffActivate = true;
             buffTime1 += 2;
             def += 100;
             mana -= 2;
-        }
-        else if(nextAction == 5){ // skill2 300 Dmg + 50 posion 2 turn
+        } else if (nextAction == 5) { // skill2 300 Dmg + 50 posion 2 turn
             //isBuff2Activate = true;
             buffTime2 += 2;
             atk += 50;
             atk += 300;
             mana -= 4;
-        }
-        else if(nextAction == 1){ // normal attack 100 Dmg
-             atk += 100;
-             mana -= 1;
-        }
-        else if(nextAction == 2){ // defend 100 Def
+        } else if (nextAction == 1) { // normal attack 100 Dmg
+            atk += 100;
+            mana -= 1;
+        } else if (nextAction == 2) { // defend 100 Def
             def += 100;
-        }
-        else if(nextAction == 3){ // charge 2 mana
+        } else if (nextAction == 3) { // charge 2 mana
             mana += 2;
-        }else{
-          nextAction = 0;
+        } else {
+            nextAction = 0;
         }
 
         calFinalDamage();
@@ -61,47 +64,31 @@ public class IceBear extends Character {
 
     }
 
+    public void drawHpBar(){
+        batch.draw(Assest.icebearHpBar,hpBarPos.x,hpBarPos.y);
+    }
+
     @Override
     public void playSound() {
 
     }
-    private TextureRegion a,b;
+
+    private TextureRegion a, b;
+
     @Override
     public void draw(float time) {
         //batch.draw((TextureRegion)(Assest.iceBearAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
-        a = (TextureRegion)(Assest.iceBearAnimation[action].getKeyFrame(time,true));
-        if(whoiam == 1 && a.isFlipX() == false &&  b!= a){
-            a.flip(true,false);
+        a = (TextureRegion) (Assest.iceBearAnimation[action].getKeyFrame(time, true));
+        if (whoiam == 1 && a.isFlipX() == false && b != a) {
+            a.flip(true, false);
             b = a;
         }
-        batch.draw(a,pos.x,pos.y);
+        batch.draw(a, pos.x, pos.y);
+        drawHpBar();
     }
 
     @Override
     public String toString() {
-        return super.toString() + " buffTime1:"+buffTime1+" bufftime2:"+buffTime2;
+        return super.toString() + " buffTime1:" + buffTime1 + " bufftime2:" + buffTime2;
     }
-
-    //    public void resetStatus(){
-//        atk = 0;
-//        def = 0;
-//        finalDef = 0;
-//        finalAtk = 0;
-//    }
-//    public void takeDamage(int dmg){
-//        if(dmg > 0){
-//            // hit
-//            hp -= dmg;
-//        }
-//    }
-//
-//    public boolean isDeath(){
-//        if(hp <= 0){
-//            return true;
-//        }
-//        else{
-//            return false;
-//        }
-//    }
-
 }
