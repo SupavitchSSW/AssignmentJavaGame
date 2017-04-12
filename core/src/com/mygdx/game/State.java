@@ -27,12 +27,15 @@ public class State {
     public void input(){
         switch (currentState) {
             case 0:
-                if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
-                    currentState++;
-                }
-                if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
-                    currentState = -1;
-                }
+//                if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+//                    currentState++;
+//                }
+//                if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
+//                    currentState = -1;
+//                }
+                currentState++;
+                Assest.gamePlayBGM.play();
+                Assest.gamePlayBGM.setLooping(true);
                 break;
             case 1:
                 //character select screen
@@ -84,8 +87,7 @@ public class State {
                 if(p1Confirm == true && p2Confirm == true){
                     currentState++;
                     setCharacter();
-                    Assest.gamePlayBGM.play();
-                    Assest.gamePlayBGM.setLooping(true);
+
                 }
                 //System.out.println("P1"+p1Select+"P2"+p2Select);
                 break;

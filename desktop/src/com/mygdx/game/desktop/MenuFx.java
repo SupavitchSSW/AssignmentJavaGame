@@ -37,8 +37,11 @@ public class MenuFx extends Application {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.height = 800;
         config.width = 1600;
-        config.resizable = false;
+        config.resizable = true;
         new LwjglApplication(new CuttieBattle(), config);
+        Thread.sleep(1000);
+        config.width = 10;
+
 
     }
 
