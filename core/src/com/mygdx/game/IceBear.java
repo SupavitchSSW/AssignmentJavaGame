@@ -54,7 +54,11 @@ public class IceBear extends Character {
         } else if (nextAction == 2) { // defend 100 Def
             def += 100;
         } else if (nextAction == 3) { // charge 2 mana
-            mana += 2;
+            if(mana < 4){
+                mana += 2;
+            } else if(mana == 4){
+                mana += 1;
+            }
         } else {
             nextAction = 0;
         }

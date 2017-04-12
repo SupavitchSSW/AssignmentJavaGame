@@ -55,7 +55,9 @@ public class Grizzly extends Character {
             def += 100;
         }
         else if(action == 3){ // charge 1 mana
-            mana += 1;
+            if(mana != 5){
+                mana += 1;
+            }
         }else {
             action = 0;
         }
