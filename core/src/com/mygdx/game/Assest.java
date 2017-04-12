@@ -19,9 +19,9 @@ public class Assest {
     static Animation grizzlyAnimation[] = new Animation[9];
     static Animation pandaAnimation[] = new Animation[9];
     static Animation iceBearAnimation[] = new Animation[9];
-    static TextureRegion grizzlyStatusBar = new TextureRegion(new Texture("assets/pic/Game/HPManagrizzlymix.png"));
-    static TextureRegion pandaStatusBar = new TextureRegion(new Texture("assets/pic/Game/HPManaPandamix.png"));
-    static TextureRegion icebearStatusBar = new TextureRegion(new Texture("assets/pic/Game/HPManaIcebearmix.png"));
+    static TextureRegion grizzlyStatusBar = new TextureRegion(new Texture("assets/pic/Game/GrizzlyHPManamix.png"));
+    static TextureRegion pandaStatusBar = new TextureRegion(new Texture("assets/pic/Game/PandaHPManamix.png"));
+    static TextureRegion icebearStatusBar = new TextureRegion(new Texture("assets/pic/Game/IceberaHPManamix.png"));
     static Texture SelectBG = new Texture("assets/pic/Game/characterSelectBG.jpg");
     static Texture gameplayBG = new Texture("assets/pic/Game/gameplayBg.jpg");
     static Texture p1Pin = new Texture("assets/pic/Game/Player1.png");
@@ -65,7 +65,7 @@ public class Assest {
         TextureRegion grizzlyAttack[] = new TextureRegion[2];
         grizzlyAttack[0] = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyAttack1.png"));
         grizzlyAttack[1] = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyAttack2.png"));
-        grizzlyAnimation[1] = new Animation(1f,grizzlyAttack);
+        grizzlyAnimation[1] = new Animation(1.25f,grizzlyAttack);
 
         // grizzly def
         TextureRegion grizzlyDef = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyProtect.png"));
@@ -85,7 +85,7 @@ public class Assest {
             String p = "assets/pic/CharacterReal/GrizzlySkill2_"+(i+1)+".png";
             grizzlySkill2[i] = new TextureRegion(new Texture(p));
         }
-        grizzlyAnimation[5] = new Animation(0.4f,grizzlySkill2);
+        grizzlyAnimation[5] = new Animation(0.3f,grizzlySkill2);
 
         //grizzly hit
         TextureRegion grizzlyHit = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyBroken.png"));
@@ -108,7 +108,7 @@ public class Assest {
 
         // grizzly attack
         TextureRegion icebearAttack = new TextureRegion(new Texture("assets/pic/CharacterReal/IcebearAttact.png"));
-        iceBearAnimation[1] = new Animation(1f,icebearAttack);
+        iceBearAnimation[1] = new Animation(1.25f,icebearAttack);
 
         // grizzly def
         TextureRegion icebearDef = new TextureRegion(new Texture("assets/pic/CharacterReal/IcebearProtect.png"));

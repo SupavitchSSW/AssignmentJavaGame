@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
@@ -17,14 +18,14 @@ public class Grizzly extends Character {
         if(whoiam == 1){
             statusBarPos.x = 0;
             statusBarPos.y = 500;
-            hpBarPos.add(statusBarPos.x+100,statusBarPos.y+100);
-            manaBarPos.add(statusBarPos.x+50,statusBarPos.y+50);
+            hpBarPos.add(statusBarPos.x+366,statusBarPos.y+190);
+            manaBarPos.add(statusBarPos.x+30,statusBarPos.y+138);
         }else{
             statusBarPos.x = 1000;
             statusBarPos.y = 500;
             Assest.grizzlyStatusBar.flip(true,false);
-            hpBarPos.add(statusBarPos.x+100,statusBarPos.y+100);
-            manaBarPos.add(statusBarPos.x+50,statusBarPos.y+50);
+            hpBarPos.add(statusBarPos.x+600-366,statusBarPos.y+190);
+            manaBarPos.add(statusBarPos.x+457,statusBarPos.y+138);
         }
     }
 
@@ -72,8 +73,11 @@ public class Grizzly extends Character {
         if(hp <= 0){
             hpW = 0;
         }
-        batch.draw(hpBar,0,0,hpW,hpBar.getRegionHeight());
-        batch.draw(manaBar[mana],0,100);
+        if(whoiam == 2){
+            hpW *= -1;
+        }
+        batch.draw(hpBar,hpBarPos.x,hpBarPos.y,hpW,hpBar.getRegionHeight());
+        batch.draw(manaBar[mana],manaBarPos.x,manaBarPos.y);
     }
 
     @Override

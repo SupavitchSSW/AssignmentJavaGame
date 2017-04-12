@@ -191,7 +191,7 @@ public class State {
     public void gameEnd(){
         p1Select = 0;
         p1Confirm = false;
-        p2Select = 0;
+        p2Select = 2;
         p2Confirm = false;
         currentState = 0;
     }
