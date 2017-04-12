@@ -47,10 +47,16 @@ public class Panda extends Character {
     public void playSound() {
 
     }
-
+    private TextureRegion a,b;
     @Override
     public void draw(float time) {
-        batch.draw((TextureRegion)(Assest.pandaAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        //batch.draw((TextureRegion)(Assest.pandaAnimation[action].getKeyFrame(time,true)) , pos.x,pos.y);
+        a = (TextureRegion)(Assest.pandaAnimation[action].getKeyFrame(time,true));
+        if(whoiam == 1 && a.isFlipX() == false &&  b!= a){
+            a.flip(true,false);
+            b = a;
+        }
+        batch.draw(a,pos.x,pos.y);
     }
 
     @Override
