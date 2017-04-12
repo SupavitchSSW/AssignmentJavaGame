@@ -100,25 +100,25 @@ public class State {
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.E)) {
                     CuttieBattle.p1.nextAction = 3;
                 }
-                else if(Gdx.input.isKeyJustPressed(Input.Keys.R)) {
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.A)) {
                     CuttieBattle.p1.nextAction = 4;
                 }
-                else if(Gdx.input.isKeyJustPressed(Input.Keys.T)) {
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.S)) {
                     CuttieBattle.p1.nextAction = 5;
                 }
-                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_4)) {
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.I)) {
                     CuttieBattle.p2.nextAction = 1;
                 }
-                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_5)) {
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.O)) {
                     CuttieBattle.p2.nextAction = 2;
                 }
-                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_6)) {
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.P)) {
                     CuttieBattle.p2.nextAction = 3;
                 }
-                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_1)) {
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.K)) {
                     CuttieBattle.p2.nextAction = 4;
                 }
-                else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_2)) {
+                else if(Gdx.input.isKeyJustPressed(Input.Keys.L)) {
                     CuttieBattle.p2.nextAction = 5;
                 }
                 break;
@@ -128,24 +128,24 @@ public class State {
     public void setCharacter(){
         switch (p1Select){
             case 0:
-                CuttieBattle.p1 = new IceBear(100,200,1);
+                CuttieBattle.p1 = new IceBear(100,100,1);
                 break;
             case 1:
-                CuttieBattle.p1 = new Grizzly(100,200,1);
+                CuttieBattle.p1 = new Grizzly(100,100,1);
                 break;
             case 2:
-                CuttieBattle.p1 = new Panda(100,200,1);
+                CuttieBattle.p1 = new Panda(100,100,1);
                 break;
         }
         switch (p2Select){
             case 0:
-                CuttieBattle.p2 = new IceBear(1100,200,2);
+                CuttieBattle.p2 = new IceBear(1100,100,2);
                 break;
             case 1:
-                CuttieBattle.p2 = new Grizzly(1100,200,2);
+                CuttieBattle.p2 = new Grizzly(1100,100,2);
                 break;
             case 2:
-                CuttieBattle.p2 = new Panda(1100,200,2);
+                CuttieBattle.p2 = new Panda(1100,100,2);
                 break;
         }
     }
