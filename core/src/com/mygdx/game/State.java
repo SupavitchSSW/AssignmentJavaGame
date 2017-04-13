@@ -141,13 +141,13 @@ public class State {
         }
         switch (p2Select){
             case 0:
-                CuttieBattle.p2 = new IceBear(1100,100,2);
+                CuttieBattle.p2 = new IceBear(1050,100,2);
                 break;
             case 1:
-                CuttieBattle.p2 = new Grizzly(1100,100,2);
+                CuttieBattle.p2 = new Grizzly(1050,100,2);
                 break;
             case 2:
-                CuttieBattle.p2 = new Panda(1100,100,2);
+                CuttieBattle.p2 = new Panda(1050,100,2);
                 break;
         }
     }

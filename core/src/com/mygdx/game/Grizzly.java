@@ -92,7 +92,7 @@ public class Grizzly extends Character {
         if(action > 5){
             a = 0;
         }
-        batch.draw(Assest.grizzlySkill[a],skillButtonPos.x,skillButtonPos.y,300,300);
+        batch.draw(Assest.grizzlySkill[a],skillButtonPos.x,skillButtonPos.y);
     }
 
     @Override
