@@ -27,7 +27,7 @@ public class Grizzly extends Character {
         }else{
             statusBarPos.x = 1000;
             statusBarPos.y = 500;
-            skillButtonPos.add(1000,0);
+            skillButtonPos.add(1100,0);
             if(Assest.grizzlyStatusBar.isFlipX() != true ){
                 Assest.grizzlyStatusBar.flip(true,false);
             }
@@ -92,7 +92,7 @@ public class Grizzly extends Character {
         if(action > 5){
             a = 0;
         }
-        batch.draw(Assest.grizzlySkill[a],skillButtonPos.x,skillButtonPos.y);
+        batch.draw(Assest.grizzlySkill[a],skillButtonPos.x,skillButtonPos.y,300,300);
     }
 
     @Override

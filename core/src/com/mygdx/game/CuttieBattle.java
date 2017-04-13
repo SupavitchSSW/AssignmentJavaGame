@@ -19,6 +19,7 @@ public class CuttieBattle extends ApplicationAdapter {
 	int tempActionP1,tempActionP2;
 	float deltaTime;
 	boolean p1Hit,p2Hit;
+	int whoWin = 3;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -130,16 +131,25 @@ public class CuttieBattle extends ApplicationAdapter {
 						if(p1.isDeath() && p2.isDeath()){
 							// draw
 							System.out.println("DRAW");
-							state.gameEnd();
+							gameState = 8;
+							whoWin = 0;
+							break;
+							//state.gameEnd();
 						}else if(p1.isDeath()){
 							// p2 win
 							System.out.println("P2 WIN !!");
-							state.gameEnd();
+							//state.gameEnd();
+							gameState = 8;
+							whoWin = 2;
+							break;
 						}
 						else if(p2.isDeath()){
 							// p1 win
 							System.out.println("P1 WIN !!");
-							state.gameEnd();
+							//state.gameEnd();
+							gameState = 8;
+							whoWin = 1;
+							break;
 						}
 						gameState++;
 						startCountTime = new Date();
@@ -179,12 +189,28 @@ public class CuttieBattle extends ApplicationAdapter {
 						break;
 					case 7:
 						// reset
-						gameState = 0;
-						p1.action = 0;
-						p2.action = 0;
-						p1Hit = false;
-						p2Hit = false;
-						startCountTime = new Date();
+						reset();
+						break;
+					case 8:
+						// end game
+						currentCountTime = new Date();
+						int s2 = currentCountTime.getSeconds() - startCountTime.getSeconds();
+						switch (s2){
+							case 0:
+								break;
+							case 1:
+								break;
+							case 2:
+								break;
+							case 3:
+								break;
+							case 4:
+								break;
+							default:
+								reset();
+								whoWin=4;
+								state.gameEnd();
+						}
 					default:playing = false;
 				}
 				default:;
@@ -192,9 +218,19 @@ public class CuttieBattle extends ApplicationAdapter {
 				deltaTime += Gdx.graphics.getDeltaTime();
 				p1.draw(deltaTime);
 				p2.draw(deltaTime);
+				state.drawWinner(whoWin);
 				batch.end();
 				break;
 		}
+	}
+
+	public void reset(){
+		gameState = 0;
+		p1.action = 0;
+		p2.action = 0;
+		p1Hit = false;
+		p2Hit = false;
+		startCountTime = new Date();
 	}
 
 	@Override

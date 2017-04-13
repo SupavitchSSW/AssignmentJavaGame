@@ -25,6 +25,7 @@ public class Assest {
     static TextureRegion grizzlySkill[] = new TextureRegion[6];
     static TextureRegion icebearSkill[] = new TextureRegion[6];
     static TextureRegion pandaSkill[] = new TextureRegion[6];
+    static TextureRegion winnerPic[] = new TextureRegion[3];
 
     static Texture SelectBG = new Texture("assets/pic/Game/characterSelectBG.jpg");
     static Texture gameplayBG = new Texture("assets/pic/Game/gameplayBg.jpg");
@@ -52,6 +53,11 @@ public class Assest {
     }
 
     public static void load(){
+
+        // end game pic
+        winnerPic[0] = new TextureRegion(new Texture("assets/pic/Game/drawcute.png"));
+        winnerPic[1] = new TextureRegion(new Texture("assets/pic/Game/P1Wincute.png"));
+        winnerPic[2] = new TextureRegion(new Texture("assets/pic/Game/P2Wincute.png"));
 
         //skill button
         for(int i = 0 ;i < 6 ;i++){

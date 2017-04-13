@@ -198,6 +198,21 @@ public class State {
         currentState = 0;
     }
 
+    public void drawWinner(int c){
+        switch (c){
+            case 0://draw
+                batch.draw(Assest.winnerPic[0],200,0);
+                break;
+            case 1:
+                batch.draw(Assest.winnerPic[1],200,0);
+                break;
+            case 2:
+                batch.draw(Assest.winnerPic[2],200,0);
+                break;
+            default:
+        }
+    }
+
     public int getCurrentState() {
         return currentState;
     }
