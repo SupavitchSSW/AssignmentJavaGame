@@ -16,12 +16,14 @@ public class Panda extends Character {
             statusBarPos.y = 500;
             hpBarPos.add(statusBarPos.x+366,statusBarPos.y+190);
             manaBarPos.add(statusBarPos.x+30,statusBarPos.y+138);
+            skillButtonPos.add(0,0);
             if(Assest.pandaStatusBar.isFlipX() == true){
                 Assest.pandaStatusBar.flip(true,false);
             }
         }else{
             statusBarPos.x = 1000;
             statusBarPos.y = 500;
+            skillButtonPos.add(1600-405,0);
             if(Assest.pandaStatusBar.isFlipX() != true ){
                 Assest.pandaStatusBar.flip(true,false);
             }
@@ -75,6 +77,15 @@ public class Panda extends Character {
     }
 
     @Override
+    public void drawSkillButton(){
+        int a = nextAction;
+        if(nextAction > 5){
+            a = 0;
+        }
+        batch.draw(Assest.pandaSkill[a],skillButtonPos.x,skillButtonPos.y);
+    }
+
+    @Override
     public void playSound() {
 
     }
@@ -89,6 +100,7 @@ public class Panda extends Character {
         }
         batch.draw(a,pos.x,pos.y);
         drawStatusBar();
+        drawSkillButton();
     }
 
     @Override

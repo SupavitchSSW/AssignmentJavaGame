@@ -105,8 +105,8 @@ public class CuttieBattle extends ApplicationAdapter {
 						switch (s){
 							case 0:
 								break;
-							case 1:
-								break;
+//							case 1:
+//								break;
 							default:
 								gameState++;
 						}
@@ -180,6 +180,7 @@ public class CuttieBattle extends ApplicationAdapter {
 					case 6:
 						//move to start position
 						//System.out.println("go back");
+						state.input();
 						p1.setDestinationPos(100,300);
 						p2.setDestinationPos(1100,300);
 						p1.goLeft();
@@ -189,7 +190,7 @@ public class CuttieBattle extends ApplicationAdapter {
 						break;
 					case 7:
 						// reset
-						reset();
+						resetGameState();
 						break;
 					case 8:
 						// end game
@@ -207,7 +208,7 @@ public class CuttieBattle extends ApplicationAdapter {
 							case 4:
 								break;
 							default:
-								reset();
+								resetGameState();
 								whoWin=4;
 								state.gameEnd();
 						}
@@ -224,7 +225,7 @@ public class CuttieBattle extends ApplicationAdapter {
 		}
 	}
 
-	public void reset(){
+	public void resetGameState(){
 		gameState = 0;
 		p1.action = 0;
 		p2.action = 0;

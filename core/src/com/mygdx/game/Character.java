@@ -151,6 +151,7 @@ public abstract class Character{
     }
 
     abstract public void playSound();
+    abstract public void drawSkillButton();
 
     @Override
     public String toString() {

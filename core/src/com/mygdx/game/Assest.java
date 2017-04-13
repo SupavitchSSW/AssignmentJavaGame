@@ -79,9 +79,9 @@ public class Assest {
         grizzlyAnimation[0] = new Animation(0.25f,grizzlyStandBy);
 
         // grizzly attack
-        TextureRegion grizzlyAttack[] = new TextureRegion[2];
-        grizzlyAttack[0] = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyAttack1.png"));
-        grizzlyAttack[1] = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyAttack2.png"));
+        TextureRegion grizzlyAttack = new TextureRegion(new Texture("assets/pic/CharacterReal/grizzlyAttact.png"));
+//        grizzlyAttack[0] = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyAttack1.png"));
+//        grizzlyAttack[1] = new TextureRegion(new Texture("assets/pic/CharacterReal/GrizzlyAttack2.png"));
         grizzlyAnimation[1] = new Animation(1.25f,grizzlyAttack);
 
         // grizzly def
