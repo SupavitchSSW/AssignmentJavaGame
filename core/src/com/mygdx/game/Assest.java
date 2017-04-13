@@ -55,13 +55,13 @@ public class Assest {
 
         //skill button
         for(int i = 0 ;i < 6 ;i++){
-            grizzlySkill[i] = new TextureRegion(new Texture("assets/pic/SkillPreview/GrizzlySkillButton"+i+".png"));
+            grizzlySkill[i] = new TextureRegion(new Texture("assets/pic/Game/GrizzlySkillButton"+i+".png"));
         }
         for(int i = 0 ;i < 6 ;i++){
-            icebearSkill[i] = new TextureRegion(new Texture("assets/pic/SkillPreview/IcebearSkillButton"+i+".png"));
+            icebearSkill[i] = new TextureRegion(new Texture("assets/pic/Game/IcebearSkillButton"+i+".png"));
         }
         for(int i = 0 ;i < 6 ;i++){
-            pandaSkill[i] = new TextureRegion(new Texture("assets/pic/SkillPreview/PandaSkillButton"+i+".png"));
+            pandaSkill[i] = new TextureRegion(new Texture("assets/pic/Game/PandaSkillButton"+i+".png"));
         }
 
         // grizzly standby animation

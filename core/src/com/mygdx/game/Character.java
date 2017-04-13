@@ -28,6 +28,7 @@ public abstract class Character{
     Vector2 statusBarPos = new Vector2();
     Vector2 hpBarPos = new Vector2(); // 366 , 190
     Vector2 manaBarPos = new Vector2();// 30 , 138
+    Vector2 skillButtonPos = new Vector2();
     Sprite sprite;
     TextureRegion hpBar = new TextureRegion(new Texture("assets/pic/Game/HPFull.png"));
     TextureRegion manaBar[] = new TextureRegion[6];

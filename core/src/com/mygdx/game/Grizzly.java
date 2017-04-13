@@ -20,12 +20,14 @@ public class Grizzly extends Character {
             statusBarPos.y = 500;
             hpBarPos.add(statusBarPos.x+366,statusBarPos.y+190);
             manaBarPos.add(statusBarPos.x+30,statusBarPos.y+138);
+            skillButtonPos.add(0,0);
             if(Assest.grizzlyStatusBar.isFlipX() == true){
                 Assest.grizzlyStatusBar.flip(true,false);
             }
         }else{
             statusBarPos.x = 1000;
             statusBarPos.y = 500;
+            skillButtonPos.add(1000,0);
             if(Assest.grizzlyStatusBar.isFlipX() != true ){
                 Assest.grizzlyStatusBar.flip(true,false);
             }
@@ -85,6 +87,14 @@ public class Grizzly extends Character {
         batch.draw(manaBar[mana],manaBarPos.x,manaBarPos.y);
     }
 
+    public void drawSkillButton(){
+        int a = action;
+        if(action > 5){
+            a = 0;
+        }
+        batch.draw(Assest.grizzlySkill[a],skillButtonPos.x,skillButtonPos.y);
+    }
+
     @Override
     public void playSound() {
         if(action == 1){
@@ -103,6 +113,7 @@ public class Grizzly extends Character {
         }
         batch.draw(a,pos.x,pos.y);
         drawStatusBar();
+        drawSkillButton();
     }
 
     @Override
