@@ -20,10 +20,15 @@ public class Grizzly extends Character {
             statusBarPos.y = 500;
             hpBarPos.add(statusBarPos.x+366,statusBarPos.y+190);
             manaBarPos.add(statusBarPos.x+30,statusBarPos.y+138);
+            if(Assest.grizzlyStatusBar.isFlipX() == true){
+                Assest.grizzlyStatusBar.flip(true,false);
+            }
         }else{
             statusBarPos.x = 1000;
             statusBarPos.y = 500;
-            Assest.grizzlyStatusBar.flip(true,false);
+            if(Assest.grizzlyStatusBar.isFlipX() != true ){
+                Assest.grizzlyStatusBar.flip(true,false);
+            }
             hpBarPos.add(statusBarPos.x+600-366,statusBarPos.y+190);
             manaBarPos.add(statusBarPos.x+457,statusBarPos.y+138);
         }

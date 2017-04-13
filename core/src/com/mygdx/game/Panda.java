@@ -16,10 +16,15 @@ public class Panda extends Character {
             statusBarPos.y = 500;
             hpBarPos.add(statusBarPos.x+366,statusBarPos.y+190);
             manaBarPos.add(statusBarPos.x+30,statusBarPos.y+138);
+            if(Assest.pandaStatusBar.isFlipX() == true){
+                Assest.pandaStatusBar.flip(true,false);
+            }
         }else{
             statusBarPos.x = 1000;
             statusBarPos.y = 500;
-            Assest.pandaStatusBar.flip(true,false);
+            if(Assest.pandaStatusBar.isFlipX() != true ){
+                Assest.pandaStatusBar.flip(true,false);
+            }
             hpBarPos.add(statusBarPos.x+600-366,statusBarPos.y+190);
             manaBarPos.add(statusBarPos.x+457,statusBarPos.y+138);
         }
