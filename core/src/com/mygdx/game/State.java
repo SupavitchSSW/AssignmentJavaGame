@@ -34,8 +34,7 @@ public class State {
 //                    currentState = -1;
 //                }
                 currentState++;
-                Assest.gamePlayBGM.play();
-                Assest.gamePlayBGM.setLooping(true);
+
                 break;
             case 1:
                 //character select screen
@@ -61,6 +60,7 @@ public class State {
                     }
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+                    //Assest.selectSound.play();
                     p1Confirm = true;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT)){
@@ -73,6 +73,7 @@ public class State {
                     }
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)){
+                    //Assest.punchSound.play(1f);
                     if(p2Select < 2 && p2Confirm == false){
                         if(p2Select+1 != p1Select){
                             p2Select++;
@@ -82,11 +83,14 @@ public class State {
                     }
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+                    //Assest.selectSound.play();
                     p2Confirm = true;
                 }
                 if(p1Confirm == true && p2Confirm == true){
                     currentState++;
                     setCharacter();
+                    Assest.gamePlayBGM.play();
+                    Assest.gamePlayBGM.setLooping(true);
 
                 }
                 //System.out.println("P1"+p1Select+"P2"+p2Select);

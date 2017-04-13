@@ -77,6 +77,7 @@ public abstract class Character{
                 if (mana - 1 < 0) {
                     nextAction = 7;
                     System.out.println("not enought Mana");
+                    Assest.outOffManaSound.play(1.0f);
                 }
                 break;
             }
@@ -84,6 +85,7 @@ public abstract class Character{
                 if(mana - 2 < 0){
                     nextAction = 7;
                     System.out.println("not enought Mana");
+                    Assest.outOffManaSound.play(1.0f);
                 }
                 break;
             }
@@ -91,6 +93,7 @@ public abstract class Character{
                 if(mana - 4 < 0){
                     nextAction = 7;
                     System.out.println("not enought Mana");
+                    Assest.outOffManaSound.play(1.0f);
                 }
             }
         }

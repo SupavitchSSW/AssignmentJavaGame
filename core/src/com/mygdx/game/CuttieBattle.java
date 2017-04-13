@@ -96,6 +96,8 @@ public class CuttieBattle extends ApplicationAdapter {
 						p1.checkMana();
 						p2.checkMana();
 						gameState++;
+						p1.playSound();
+						p2.playSound();
 						startCountTime = new Date();
 						break;
 					case 3:
@@ -115,8 +117,6 @@ public class CuttieBattle extends ApplicationAdapter {
 						// cal HP
 						p1.setStatus();
 						p2.setStatus();
-						p1.playSound();
-						p2.playSound();
 						p1Hit =  p1.takeDamage(p2.finalAtk);
 						p2Hit =  p2.takeDamage(p1.finalAtk);
 						p1.resetStatus();
@@ -133,6 +133,7 @@ public class CuttieBattle extends ApplicationAdapter {
 							System.out.println("DRAW");
 							gameState = 8;
 							whoWin = 0;
+							Assest.winSound.play(1.0f);
 							break;
 							//state.gameEnd();
 						}else if(p1.isDeath()){
@@ -141,6 +142,7 @@ public class CuttieBattle extends ApplicationAdapter {
 							//state.gameEnd();
 							gameState = 8;
 							whoWin = 2;
+							Assest.winSound.play(1.0f);
 							break;
 						}
 						else if(p2.isDeath()){
@@ -149,33 +151,35 @@ public class CuttieBattle extends ApplicationAdapter {
 							//state.gameEnd();
 							gameState = 8;
 							whoWin = 1;
+							Assest.winSound.play(1.0f);
 							break;
 						}
 						gameState++;
 						startCountTime = new Date();
 						break;
 					case 5:
-						// set action Hit
-						if(p1Hit == true || p2Hit ==true){
-							if(p1Hit == true){
-								p1.action = 6;
-								//System.out.println("P1 Hit");
-							}
-							if(p2Hit == true){
-								p2.action = 6;
-								//System.out.println("P2 Hit");
-							}
-							currentCountTime = new Date();
-							int s1 = currentCountTime.getSeconds() - startCountTime.getSeconds();
-							switch (s1){
-								case 0:
-									break;
-
-								default:
-									gameState++;
-							}
-						}
-						else gameState++;
+//						// set action Hit
+//						if(p1Hit == true || p2Hit ==true){
+//							if(p1Hit == true){
+//								p1.action = 6;
+//								//System.out.println("P1 Hit");
+//							}
+//							if(p2Hit == true){
+//								p2.action = 6;
+//								//System.out.println("P2 Hit");
+//							}
+//							currentCountTime = new Date();
+//							int s1 = currentCountTime.getSeconds() - startCountTime.getSeconds();
+//							switch (s1){
+//								case 0:
+//									break;
+//
+//								default:
+//									gameState++;
+//							}
+//						}
+//						else gameState++;
+						gameState++;
 						break;
 					case 6:
 						//move to start position

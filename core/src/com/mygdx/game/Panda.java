@@ -87,7 +87,24 @@ public class Panda extends Character {
 
     @Override
     public void playSound() {
-
+        switch (action){
+            case 1:
+                Assest.punchSound.play(1.0f);
+                break;
+            case 2:
+                Assest.defenseSound.play(1.0f);
+                break;
+            case 3:
+                Assest.chargeManaSound.play(1.0f);
+                break;
+            case 4:
+                Assest.pandaSkill1Sound.play(1.0f);
+                break;
+            case 5:
+                //Assest.grizzlySkill2Sound.play(1.0f);
+                Assest.pandaSkill1Sound.play(1.0f);
+                break;
+        }
     }
     private TextureRegion a,b;
     @Override

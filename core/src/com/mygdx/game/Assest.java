@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import javax.xml.soap.Text;
+import java.sql.SQLOutput;
 
 /**
  * Created by root on 1/4/2560.
@@ -34,19 +35,27 @@ public class Assest {
     static Texture grizzlyPreview = new Texture("assets/pic/SkillPreview/GrizzlySkillPreview.png");
     static Texture icebearPreview = new Texture("assets/pic/SkillPreview/IcebearSkillPreview.png");
     static Texture pandaPreview = new Texture("assets/pic/SkillPreview/PandaSkillPreview.png");
-    //static Sound punchSound = Gdx.audio.newSound(Gdx.files.internal("assets/Punch Sound Effect.mp3"));
-    static Music gamePlayBGM = Gdx.audio.newMusic(Gdx.files.internal("assets/sound/music/BG03.wav"));
-    static Sound grizzlySkillSound[] = new Sound[2];
-    static Sound icebearSkillSound[] = new Sound[2];
-    static Sound pandaSkillSound[] = new Sound[2];
-    static Sound selectSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/select.mp3"));
-    static Sound winSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/EndGame.wav"));
-    static Sound DefenseSOund = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Defense.wav"));
-    static Sound chargeManaSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/ChargeMana.wav"));
-    static Sound kickSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/kick.wav"));
-    static Sound punchSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/punch.wav"));
-    static Sound hitSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Atk.wav"));
-    static Sound outOffManaSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/OutOfMana.wav"));
+
+//    static Sound grizzlySkillSound[] = new Sound[2];
+    static Sound grizzlySkill1Sound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/GlizzlyBear Skill1.mp3"));
+    static Sound grizzlySkill2Sound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/GlizzlyBear Skill2.mp3"));
+
+//    static Sound icebearSkillSound[] = new Sound[2];
+    static Sound icebearSkill1Sound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/IceBear Skill1.mp3"));
+    static Sound icebearSkill2Sound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/IceBear Skill2.mp3"));
+
+//    static Sound pandaSkillSound[] = new Sound[2];
+    static Sound pandaSkill1Sound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Panda Skill1.mp3"));
+
+//    static Sound selectSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/select.mp3"));
+    static Sound outOffManaSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/OutOfMana.mp3"));
+//    static Sound hitSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Atk.mp3"));
+    static Sound punchSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Punch Sound Effect.mp3"));
+    static Sound kickSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/kick.mp3"));
+    static Sound chargeManaSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/ChargeMana.mp3"));
+    static Sound defenseSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Defense.mp3"));
+    static Sound winSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/EndGame.mp3"));
+    static Music gamePlayBGM = Gdx.audio.newMusic(Gdx.files.internal("assets/sound/music/BG03.ogg"));
 
     public Assest(){
 /*
@@ -65,14 +74,14 @@ public class Assest {
     public static void load(){
 
         // load sound
-        grizzlySkillSound[0] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/GlizzlyBear Skill1.wav"));
-        grizzlySkillSound[1] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/GlizzlyBear Skill2.mp3"));
-
-        icebearSkillSound[0] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/IceBear Skill1.wav"));
-        icebearSkillSound[1] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/IceBear Skill2.wav"));
-
-        pandaSkillSound[0] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Panda Skill1.wav"));
-        pandaSkillSound[1] = pandaSkillSound[0];
+//        grizzlySkillSound[0] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/GlizzlyBear Skill1.mp3"));
+//        grizzlySkillSound[1] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/GlizzlyBear Skill2.mp3"));
+//
+//        icebearSkillSound[0] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/IceBear Skill1.mp3"));
+//        icebearSkillSound[1] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/IceBear Skill2.mp3"));
+//
+//        pandaSkillSound[0] = Gdx.audio.newSound(Gdx.files.internal("assets/sound/effect/Panda Skill1.mp3"));
+//        pandaSkillSound[1] = pandaSkillSound[0];
 
         // end game pic
         winnerPic[0] = new TextureRegion(new Texture("assets/pic/Game/drawcute.png"));
