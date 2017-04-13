@@ -130,6 +130,7 @@ public class CuttieBattle extends ApplicationAdapter {
 						if(p1.isDeath() && p2.isDeath()){
 							// draw
 							System.out.println("DRAW");
+							state.gameEnd();
 						}else if(p1.isDeath()){
 							// p2 win
 							System.out.println("P2 WIN !!");
