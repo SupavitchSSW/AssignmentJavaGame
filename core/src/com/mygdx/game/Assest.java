@@ -22,6 +22,10 @@ public class Assest {
     static TextureRegion grizzlyStatusBar = new TextureRegion(new Texture("assets/pic/Game/GrizzlyHPManamix.png"));
     static TextureRegion pandaStatusBar = new TextureRegion(new Texture("assets/pic/Game/PandaHPManamix.png"));
     static TextureRegion icebearStatusBar = new TextureRegion(new Texture("assets/pic/Game/IcebearHPManamix.png"));
+    static TextureRegion grizzlySkill[] = new TextureRegion[6];
+    static TextureRegion icebearSkill[] = new TextureRegion[6];
+    static TextureRegion pandaSkill[] = new TextureRegion[6];
+
     static Texture SelectBG = new Texture("assets/pic/Game/characterSelectBG.jpg");
     static Texture gameplayBG = new Texture("assets/pic/Game/gameplayBg.jpg");
     static Texture p1Pin = new Texture("assets/pic/Game/Player1.png");
@@ -49,9 +53,16 @@ public class Assest {
 
     public static void load(){
 
-        //gameplay bg
-
-
+        //skill button
+        for(int i = 0 ;i < 6 ;i++){
+            grizzlySkill[i] = new TextureRegion(new Texture("assets/pic/SkillPreview/GrizzlySkillButton"+i+".png"));
+        }
+        for(int i = 0 ;i < 6 ;i++){
+            icebearSkill[i] = new TextureRegion(new Texture("assets/pic/SkillPreview/IcebearSkillButton"+i+".png"));
+        }
+        for(int i = 0 ;i < 6 ;i++){
+            pandaSkill[i] = new TextureRegion(new Texture("assets/pic/SkillPreview/PandaSkillButton"+i+".png"));
+        }
 
         // grizzly standby animation
         TextureRegion grizzlyStandBy[] = new TextureRegion[4];
