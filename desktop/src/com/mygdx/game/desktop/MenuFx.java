@@ -41,7 +41,7 @@ public class MenuFx extends Application {
 
         Pane pane = new Pane();
         final Pane pane2 = new Pane();
-        final Scene scene = new Scene(pane, 1600, 700);
+        final Scene scene = new Scene(pane, 1160, 700);
         final Scene scene2 = new Scene(pane2, 1600, 700);
         final Clip clip = AudioSystem.getClip();
         final Task task = new Task() {
@@ -76,7 +76,7 @@ public class MenuFx extends Application {
 //
 //        image.setImage(bg[0]);
         final Image howToPlay = new Image("file:assets/HowToPlay.png");
-        Animation ani = new AnimatedGif("home.gif", 1000);
+        Animation ani = new AnimatedGif("Home.gif", 1000);
         ani.setCycleCount(INDEFINITE);
         ani.play();
         pane.getChildren().add(ani.imageView);
