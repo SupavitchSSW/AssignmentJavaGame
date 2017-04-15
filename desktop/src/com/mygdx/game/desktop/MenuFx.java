@@ -36,7 +36,7 @@ public class MenuFx extends Application {
 
         Pane pane = new Pane();
         Pane pane2 = new Pane();
-        Scene scene = new Scene(pane, 1600, 700);
+        final Scene scene = new Scene(pane, 1600, 700);
         Scene scene2 = new Scene(pane2, 1600, 700);
         final Clip clip = AudioSystem.getClip();
         final Task task = new Task() {
@@ -73,6 +73,7 @@ public class MenuFx extends Application {
         image.setFitWidth(1600);
 
         image.setImage(bg[0]);
+        final Image howToPlay = new Image("file:assets/HowToPlay.png");
 
         pane.getChildren().add(image);
 
@@ -89,15 +90,27 @@ public class MenuFx extends Application {
             @Override
             public void handle(KeyEvent event) {
                 if ("SPACE".equals(event.getCode().toString())) {
-                    new LwjglApplication(new CuttieBattle(), config);
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    config.width = 10;
-                    clip.close();
-                    primaryStage.close();
+
+                    image.setImage(howToPlay);
+
+                    scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                        @Override
+                        public void handle(KeyEvent event) {
+                            if ("SPACE".equals(event.getCode().toString())) {
+                                new LwjglApplication(new CuttieBattle(), config);
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                config.width = 10;
+                                clip.close();
+                                primaryStage.close();
+                            }
+
+                        }
+                    });
+
                 }
 
             }
