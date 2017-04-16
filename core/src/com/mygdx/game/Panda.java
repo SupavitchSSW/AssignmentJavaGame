@@ -2,7 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import static com.mygdx.game.CuttieBattle.batch;
+import static com.mygdx.game.BearsBattle.batch;
 
 /**
  * Created by root on 1/4/2560.
