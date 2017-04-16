@@ -42,7 +42,7 @@ public class MenuFx extends Application {
         Pane pane = new Pane();
         final Pane pane2 = new Pane();
         final Scene scene = new Scene(pane, 1160, 700);
-        final Scene scene2 = new Scene(pane2, 1600, 700);
+        final Scene scene2 = new Scene(pane2, 1160, 600);
         final Clip clip = AudioSystem.getClip();
         final Task task = new Task() {
 
@@ -51,7 +51,7 @@ public class MenuFx extends Application {
                 int s = INDEFINITE;
                 String ssound = "assets/Main.wav";
 
-                File soundFile = new File( ssound);
+                File soundFile = new File(ssound);
                 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( soundFile );
 
 
@@ -65,21 +65,14 @@ public class MenuFx extends Application {
         };
         final Thread thread = new Thread(task);
         thread.start();
-//        final Image[] bg = new Image[4];
-//        bg[0] = new Image("file:assets/home1.png");
-//        bg[1] = new Image("file:assets/home2.png");
-//        bg[2] = new Image("file:assets/home3.png");
-//        bg[3] = new Image("file:assets/home4.png");
-        final ImageView image = new ImageView();
-        image.setFitHeight(720);
-        image.setFitWidth(1600);
-//
-//        image.setImage(bg[0]);
-        final Image howToPlay = new Image("file:assets/HowToPlay.png");
-        Animation ani = new AnimatedGif("Home.gif", 1000);
-        ani.setCycleCount(INDEFINITE);
-        ani.play();
-        pane.getChildren().add(ani.imageView);
+        Animation home = new AnimatedGif("assets/Home.gif", 1000);
+        home.setCycleCount(INDEFINITE);
+        home.play();
+        Animation howtoplay = new AnimatedGif("assets/Howtoplay.gif", 1000);
+        howtoplay.setCycleCount(INDEFINITE);
+        howtoplay.play();
+        pane.getChildren().add(home.imageView);
+        pane2.getChildren().add(howtoplay.imageView);
 
         primaryStage.setResizable(false);
         primaryStage.setTitle("Cuttie Battle");
@@ -97,8 +90,8 @@ public class MenuFx extends Application {
             public void handle(KeyEvent event) {
                 if ("SPACE".equals(event.getCode().toString())) {
 
-                    image.setImage(howToPlay);
-                    pane2.getChildren().addAll(image);
+
+
                     primaryStage.setScene(scene2);
 
                     scene2.setOnKeyPressed(new EventHandler<KeyEvent>() {
