@@ -5,7 +5,7 @@ package com.mygdx.game.desktop;
  */
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.mygdx.game.CuttieBattle;
+import com.mygdx.game.BearsBattle;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -75,7 +75,7 @@ public class MenuFx extends Application {
         pane2.getChildren().add(howtoplay.imageView);
 
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Cuttie Battle");
+        primaryStage.setTitle("Bears Battle");
         primaryStage.setScene(scene);
         primaryStage.show();
         final LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -98,7 +98,7 @@ public class MenuFx extends Application {
                         @Override
                         public void handle(KeyEvent event) {
                             if ("SPACE".equals(event.getCode().toString())) {
-                                new LwjglApplication(new CuttieBattle(), config);
+                                new LwjglApplication(new BearsBattle(), config);
                                 try {
                                     Thread.sleep(1000);
                                 } catch (InterruptedException e) {
