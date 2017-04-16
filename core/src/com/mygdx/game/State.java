@@ -5,8 +5,8 @@ import com.badlogic.gdx.Input;
 
 import java.util.Currency;
 
-import static com.mygdx.game.CuttieBattle.batch;
-import static com.mygdx.game.CuttieBattle.p2;
+import static com.mygdx.game.BearsBattle.batch;
+import static com.mygdx.game.BearsBattle.p2;
 
 /**
  * Created by root on 2/4/2560.
@@ -98,34 +98,34 @@ public class State {
             case 2:
                 // gameplay
                 if(Gdx.input.isKeyJustPressed(Input.Keys.Q)) {
-                    CuttieBattle.p1.nextAction = 1;
+                    BearsBattle.p1.nextAction = 1;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.W)) {
-                    CuttieBattle.p1.nextAction = 2;
+                    BearsBattle.p1.nextAction = 2;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.E)) {
-                    CuttieBattle.p1.nextAction = 3;
+                    BearsBattle.p1.nextAction = 3;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.A)) {
-                    CuttieBattle.p1.nextAction = 4;
+                    BearsBattle.p1.nextAction = 4;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.S)) {
-                    CuttieBattle.p1.nextAction = 5;
+                    BearsBattle.p1.nextAction = 5;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.I)) {
-                    CuttieBattle.p2.nextAction = 1;
+                    BearsBattle.p2.nextAction = 1;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.O)) {
-                    CuttieBattle.p2.nextAction = 2;
+                    BearsBattle.p2.nextAction = 2;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.P)) {
-                    CuttieBattle.p2.nextAction = 3;
+                    BearsBattle.p2.nextAction = 3;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.K)) {
-                    CuttieBattle.p2.nextAction = 4;
+                    BearsBattle.p2.nextAction = 4;
                 }
                 else if(Gdx.input.isKeyJustPressed(Input.Keys.L)) {
-                    CuttieBattle.p2.nextAction = 5;
+                    BearsBattle.p2.nextAction = 5;
                 }
                 break;
         }
@@ -134,24 +134,24 @@ public class State {
     public void setCharacter(){
         switch (p1Select){
             case 0:
-                CuttieBattle.p1 = new IceBear(100,100,1);
+                BearsBattle.p1 = new IceBear(100,100,1);
                 break;
             case 1:
-                CuttieBattle.p1 = new Grizzly(100,100,1);
+                BearsBattle.p1 = new Grizzly(100,100,1);
                 break;
             case 2:
-                CuttieBattle.p1 = new Panda(100,100,1);
+                BearsBattle.p1 = new Panda(100,100,1);
                 break;
         }
         switch (p2Select){
             case 0:
-                CuttieBattle.p2 = new IceBear(1050,100,2);
+                BearsBattle.p2 = new IceBear(1050,100,2);
                 break;
             case 1:
-                CuttieBattle.p2 = new Grizzly(1050,100,2);
+                BearsBattle.p2 = new Grizzly(1050,100,2);
                 break;
             case 2:
-                CuttieBattle.p2 = new Panda(1050,100,2);
+                BearsBattle.p2 = new Panda(1050,100,2);
                 break;
         }
     }
