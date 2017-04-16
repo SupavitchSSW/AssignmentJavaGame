@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.Date;
 
-public class CuttieBattle extends ApplicationAdapter {
+public class BearsBattle extends ApplicationAdapter {
 	static SpriteBatch batch;
 	Texture img;
 	static Character p1,p2;
