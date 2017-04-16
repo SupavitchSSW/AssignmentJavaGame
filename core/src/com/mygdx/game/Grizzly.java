@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
-import static com.mygdx.game.CuttieBattle.batch;
+import static com.mygdx.game.BearsBattle.batch;
 
 /**
  * Created by root on 1/4/2560.
