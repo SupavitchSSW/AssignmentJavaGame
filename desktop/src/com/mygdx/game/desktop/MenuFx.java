@@ -75,8 +75,8 @@ public class MenuFx extends Application {
         image.setFitWidth(1600);
 //
 //        image.setImage(bg[0]);
-        final Image howToPlay = new Image("file:assets/HowToPlay.png");
-        Animation ani = new AnimatedGif("Home.gif", 1000);
+        //final Image howToPlay = new Image("file:assets/HowToPlay.png");
+        Animation ani = new AnimatedGif("home.gif", 1000);
         ani.setCycleCount(INDEFINITE);
         ani.play();
         pane.getChildren().add(ani.imageView);
@@ -96,9 +96,12 @@ public class MenuFx extends Application {
             @Override
             public void handle(KeyEvent event) {
                 if ("SPACE".equals(event.getCode().toString())) {
-
-                    image.setImage(howToPlay);
-                    pane2.getChildren().addAll(image);
+                    Animation howToPlay = new AnimatedGif("htp.gif", 1000);
+                    //image.setImage(howToPlay);
+                    //pane2.getChildren().addAll(image);
+                    howToPlay.setCycleCount(INDEFINITE);
+                    howToPlay.play();
+                    pane2.getChildren().addAll(howToPlay.imageView);
                     primaryStage.setScene(scene2);
 
                     scene2.setOnKeyPressed(new EventHandler<KeyEvent>() {
